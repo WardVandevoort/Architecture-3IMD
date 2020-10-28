@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Architecture_3IMD.Models.Domain;
+using Architecture_3IMD.Data;
+using Architecture_3IMD.Repositories;
+
+using System.IO;
+using System.Net.Http;
+using Microsoft.AspNetCore.Http;
+
 
 
 
@@ -14,10 +21,16 @@ namespace Architecture_3IMD.Controllers
     //[Route("/api/[controller]")]
     public class HomeController : Controller
     {
+
+        //private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly IBouquetsRepository _bouquetsRepository;
+
+
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IBouquetsRepository bouquetsRepository, ILogger<HomeController> logger)
         {
+            _bouquetsRepository = _bouquetsRepository;
             _logger = logger;
         }
 
@@ -29,7 +42,7 @@ namespace Architecture_3IMD.Controllers
         [HttpGet]
         public IActionResult getAllStores()
         {
-            return Content("These are all the stores");
+            return Content("getting all stores");
         }
 
         [HttpGet("{id}")]
@@ -50,6 +63,16 @@ namespace Architecture_3IMD.Controllers
             
         }
 
+        [HttpGet]
+        public IActionResult getAllBouquets()
+        {
+            _logger.LogInformation("Getting all bouquets");
+            // This is a linq extension method: https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select?view=netcore-3.1
+            var bouquets = _bouquetsRepository.GetAllBouquets();
+            return Ok(bouquets);
+
+        }
+        
         public IActionResult Privacy()
         {
             return View();
