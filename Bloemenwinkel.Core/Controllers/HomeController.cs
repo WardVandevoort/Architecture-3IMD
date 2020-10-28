@@ -24,13 +24,15 @@ namespace Architecture_3IMD.Controllers
 
         //private ApplicationDbContext db = new ApplicationDbContext();
         private readonly IBouquetsRepository _bouquetsRepository;
+        private readonly IStoresRepository _storesRepository;
 
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(IBouquetsRepository bouquetsRepository, ILogger<HomeController> logger)
+        public HomeController(IStoresRepository storesRepository, IBouquetsRepository bouquetsRepository, ILogger<HomeController> logger)
         {
-            _bouquetsRepository = _bouquetsRepository;
+            _bouquetsRepository = bouquetsRepository;
+            _storesRepository = storesRepository;
             _logger = logger;
         }
 
@@ -42,7 +44,10 @@ namespace Architecture_3IMD.Controllers
         [HttpGet]
         public IActionResult getAllStores()
         {
-            return Content("getting all stores");
+            _logger.LogInformation("Getting all stores");
+            // This is a linq extension method: https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select?view=netcore-3.1
+            var stores = _storesRepository.GetAllStores();
+            return Ok(stores);
         }
 
         [HttpGet("{id}")]

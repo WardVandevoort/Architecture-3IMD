@@ -48,7 +48,8 @@ namespace Architecture_3IMD
                             .CharSetBehavior(CharSetBehavior.NeverAppend)
             ));
             services.AddTransient<IBouquetsRepository, BouquetsRepository>();
-            //services.AddTransient<IStoresRepository, StoresRepository>();
+            services.AddTransient<IStoresRepository, StoresRepository>();
+            
                     
         }
 
