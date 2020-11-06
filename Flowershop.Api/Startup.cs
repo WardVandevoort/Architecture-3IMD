@@ -13,11 +13,14 @@ using Architecture_3IMD.Data;
 using Architecture_3IMD.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore;
-
 using Pomelo.EntityFrameworkCore.MySql;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Logging;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
+using System.Text.Json.Serialization;
 
 namespace Architecture_3IMD
 {
@@ -49,13 +52,25 @@ namespace Architecture_3IMD
             ));
             services.AddTransient<IBouquetsRepository, BouquetsRepository>();
             services.AddTransient<IStoresRepository, StoresRepository>();
-            
-                    
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Flowershop API",
+                    Version = "v1",
+                    Description = "A platform to manage flowershops. Created by Jasper Peeters, Medina Dadurgova, Marlena Broniewicz and Ward Vandevoort",
+                
+                });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -77,28 +92,34 @@ namespace Architecture_3IMD
             {
 
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.MapControllerRoute(
                     name: "getStores",
                     pattern: "getStores",
-                    defaults: new {controller = "Home", action = "getAllStores"});
+                    defaults: new {controller = "Store", action = "getAllStores"});
 
                 endpoints.MapControllerRoute(
-                    name: "getStore",
-                    pattern: "getStore",
-                    defaults: new {controller = "Home", action = "getStore"});
-
-                endpoints.MapControllerRoute(
-                    name: "postTest",
-                    pattern: "postTest",
-                    defaults: new {controller = "Home", action = "postTest"});
+                    name: "createStore",
+                    pattern: "createStore",
+                    defaults: new {controller = "Store", action = "createStore"});
                 
                 endpoints.MapControllerRoute(
                     name: "getBouquets",
                     pattern: "getBouquets",
-                    defaults: new {controller = "Home", action = "getAllBouquets"});
+                    defaults: new {controller = "Bouquet", action = "getAllBouquets"});
+
+                endpoints.MapControllerRoute(
+                    name: "createBouquet",
+                    pattern: "createBouquet",
+                    defaults: new {controller = "Bouequet", action = "createBouquet"});
+            });
+
+              // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Flowershop API V1");
             });
 
         } 

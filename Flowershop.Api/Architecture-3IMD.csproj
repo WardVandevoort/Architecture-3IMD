@@ -4,6 +4,8 @@
     <LangVersion>preview</LangVersion>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Architecture_3IMD</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+     <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +17,7 @@
     </PackageReference>
     <PackageReference Include="mysql" Version="5.5.14.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 

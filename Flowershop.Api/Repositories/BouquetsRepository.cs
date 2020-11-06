@@ -4,6 +4,7 @@ using Architecture_3IMD.Data;
 using Architecture_3IMD.Models;
 using Architecture_3IMD.Models.Domain;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Architecture_3IMD.Repositories
 {
@@ -18,19 +19,19 @@ namespace Architecture_3IMD.Repositories
             _context = context;
         }
 
-        public IEnumerable<Bouquet> GetAllBouquets()
+        public async Task<IEnumerable<Bouquet>> GetAllBouquets()
         {
-            return _context.Bouquets.ToList();
+            return await _context.Bouquets.ToListAsync();
         }
 
-        public Bouquet GetOneBouquetById(int Id)
+        public async Task<Bouquet> GetOneBouquetById(int Id)
         {
-            return _context.Bouquets.Find(Id);
+            return await _context.Bouquets.FindAsync(Id);
         }
 
-        public void Delete(int Id)
+        public async Task Delete(int Id)
         {
-            var bouquet = _context.Bouquets.Find(Id);
+            var bouquet = await _context.Bouquets.FindAsync(Id);
             if (bouquet == null)
             {
                //throw new NotFoundException();
@@ -38,10 +39,10 @@ namespace Architecture_3IMD.Repositories
             }
 
             _context.Bouquets.Remove(bouquet);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Bouquet Insert(int Id, string Name, int Price, string Description)
+        public async Task<Bouquet> Insert(int Id, string Name, int Price, string Description)
         {
             //CheckBouquetExists(Id);
             var bouquet = new Bouquet
@@ -51,14 +52,14 @@ namespace Architecture_3IMD.Repositories
                Price = Price,
                Description = Description
             };
-            _context.Bouquets.Add(bouquet);
-            _context.SaveChanges();
+            await _context.Bouquets.AddAsync(bouquet);
+            await _context.SaveChangesAsync();
             return bouquet;
         }
 
-        public Bouquet Update(int Id, string Name, int Price, string Description)
+        public async Task<Bouquet> Update(int Id, string Name, int Price, string Description)
         {
-            var bouquet = _context.Bouquets.Find(Id);
+            var bouquet = await _context.Bouquets.FindAsync(Id);
             if (bouquet == null)
             {
                //throw  new NotFoundException();
@@ -68,7 +69,7 @@ namespace Architecture_3IMD.Repositories
             bouquet.Name = Name;
             bouquet.Price = Price;
             bouquet.Description = Description;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return bouquet;
         }
     }

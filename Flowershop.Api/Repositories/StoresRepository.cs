@@ -4,6 +4,7 @@ using Architecture_3IMD.Data;
 using Architecture_3IMD.Models;
 using Architecture_3IMD.Models.Domain;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Architecture_3IMD.Repositories
 {
@@ -18,19 +19,19 @@ namespace Architecture_3IMD.Repositories
             _context = context;
         }
 
-        public IEnumerable<Stores> GetAllStores()
+        public async Task<IEnumerable<Stores>> GetAllStores()
         {
-            return _context.Stores.ToList();
+            return await _context.Stores.ToListAsync();
         }
 
-        public Stores GetOneStoreById(int Id)
+        public async Task<Stores>  GetOneStoreById(int Id)
         {
-            return _context.Stores.Find(Id);
+            return await _context.Stores.FindAsync(Id);
         }
 
-        public void Delete(int Id)
+        public async Task Delete(int Id)
         {
-            var store = _context.Stores.Find(Id);
+            var store = await _context.Stores.FindAsync(Id);
             if (store == null)
             {
                //throw new NotFoundException();
@@ -38,10 +39,10 @@ namespace Architecture_3IMD.Repositories
             }
 
             _context.Stores.Remove(store);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Stores Insert(int Id, string Name, string Address, string Region)
+        public async Task<Stores> Insert(int Id, string Name, string Address, string Region)
         {
             //CheckBouquetExists(Id);
             var store = new Stores
@@ -51,14 +52,14 @@ namespace Architecture_3IMD.Repositories
                Address = Address,
                Region = Region
             };
-            _context.Stores.Add(store);
-            _context.SaveChanges();
+            await _context.Stores.AddAsync(store);
+            await _context.SaveChangesAsync();
             return store;
         }
 
-        public Stores Update(int Id, string Name, string Address, string Region)
+        public async Task<Stores> Update(int Id, string Name, string Address, string Region)
         {
-            var store = _context.Stores.Find(Id);
+            var store = await _context.Stores.FindAsync(Id);
             if (store == null)
             {
                //throw  new NotFoundException();
@@ -68,7 +69,7 @@ namespace Architecture_3IMD.Repositories
             store.Name = Name;
             store.Address = Address;
             store.Region = Region;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return store;
         }
     }
