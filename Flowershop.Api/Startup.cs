@@ -52,6 +52,7 @@ namespace Architecture_3IMD
             ));
             services.AddTransient<IBouquetsRepository, BouquetsRepository>();
             services.AddTransient<IStoresRepository, StoresRepository>();
+            services.AddTransient<ISalesRepository, SalesRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -110,9 +111,24 @@ namespace Architecture_3IMD
                     name: "createBouquet",
                     pattern: "createBouquet",
                     defaults: new {controller = "Bouequet", action = "createBouquet"});
+                
+                endpoints.MapControllerRoute(
+                    name: "getSales",
+                    pattern: "getSales",
+                    defaults: new {controller = "Sale", action = "getAllSales"});
+                
+                endpoints.MapControllerRoute(
+                    name: "createSaleCombination",
+                    pattern: "createSaleCombination",
+                    defaults: new {controller = "Sale", action = "createSaleCombination"});
+
+                endpoints.MapControllerRoute(
+                    name: "addSale",
+                    pattern: "addSale",
+                    defaults: new {controller = "Sale", action = "addSale"});
             });
 
-              // Enable middleware to serve generated Swagger as a JSON endpoint.
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),

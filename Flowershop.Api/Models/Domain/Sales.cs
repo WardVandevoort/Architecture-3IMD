@@ -20,7 +20,6 @@ public class Sale
      [Required]
      public int Bouquet_id{get; set;}
 
-     [Required]
      public int Amount{get; set;}
 }
 
