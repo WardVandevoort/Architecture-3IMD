@@ -22,6 +22,12 @@ namespace Architecture_3IMD.Repositories
             return await _context.Sales.ToListAsync();
         }
 
+        public async Task<IEnumerable<Sale>> GetBestSellingBouquets()
+        {
+            var array = await _context.Sales.ToArrayAsync();
+            return array;
+        }
+
         public async Task<Sale>  GetOneSaleById(int Store_id, int Bouquet_id)
         {
              var sale = await _context.Sales.FirstOrDefaultAsync(x => x.Store_id == Store_id && x.Bouquet_id == Bouquet_id);

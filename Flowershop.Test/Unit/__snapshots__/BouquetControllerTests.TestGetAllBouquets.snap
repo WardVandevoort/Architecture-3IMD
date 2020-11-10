@@ -1,0 +1,26 @@
+﻿{
+  "Value": [
+    {
+      "Id": 1,
+      "Name": "test name 1",
+      "Price": 123,
+      "Description": "test description 1"
+    },
+    {
+      "Id": 2,
+      "Name": "test name 2",
+      "Price": 123,
+      "Description": "test description 2"
+    },
+    {
+      "Id": 3,
+      "Name": "test name 3",
+      "Price": 123,
+      "Description": "test description 3"
+    }
+  ],
+  "Formatters": [],
+  "ContentTypes": [],
+  "DeclaredType": null,
+  "StatusCode": 200
+}

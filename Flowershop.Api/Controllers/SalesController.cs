@@ -53,6 +53,33 @@ namespace Architecture_3IMD.Controllers
                return Ok(sales);
           }
 
+          /*
+          /// <summary>
+          /// Gets a list of all the stores and the amount of sales per bouquet.
+          /// </summary>
+          /// <remarks>
+          /// Sample request:
+          /// 
+          ///     GET Flowershop/Sale
+          ///     {   
+          ///       "Id": 1,    
+          ///       "Store_id": 1,
+          ///       "Bouquet_id": 1,
+          ///       "Amount": 10        
+          ///     }
+          /// </remarks>   
+          /// <response code="200">If GET request was successfully executed.</response>
+          [HttpGet("BestSellingBouquets")]
+          [ProducesResponseType(200)]
+          public async Task<IActionResult> getBestSellingBouquet()
+          {
+               _logger.LogInformation("Getting best selling bouquets");
+               
+               //  Code that gets all the best selling bouquets.
+               var bestSellers = await _salesRepository.GetBestSellingBouquets();
+               return Ok(bestSellers);
+          }*/
+
           /// <summary>
           /// Creates a new store/bouquet sale combination.
           /// </summary>

@@ -7,6 +7,7 @@ namespace Architecture_3IMD.Repositories
     public interface ISalesRepository
     {
         Task<IEnumerable<Sale>> GetAllSales();
+        Task<IEnumerable<Sale>> GetBestSellingBouquets();
         Task<Sale> GetOneSaleById(int Store_id, int Bouquet_id);
         Task Delete(int Id);
         Task<Sale> Insert(int Id, int Store_id, int Bouquet_id, int Amount);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Architecture_3IMD.Models.Domain;
+using Architecture_3IMD.Models.Web;
 using Architecture_3IMD.Data;
 using Architecture_3IMD.Repositories;
 using System.IO;
@@ -73,7 +74,8 @@ namespace Architecture_3IMD.Controllers
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> createBouquet([FromBody]Bouquet bouquet)
+        [ProducesResponseType(typeof(BouquetWebOutput),StatusCodes.Status201Created)]
+        public async Task<IActionResult> createBouquet(BouquetUpsertInput bouquet)
         {
             _logger.LogInformation("Creating a bouquet", bouquet);
 

@@ -91,41 +91,7 @@ namespace Architecture_3IMD
 
             app.UseEndpoints(endpoints =>
             {
-
-                endpoints.MapControllerRoute(
-                    name: "getStores",
-                    pattern: "getStores",
-                    defaults: new {controller = "Store", action = "getAllStores"});
-
-                endpoints.MapControllerRoute(
-                    name: "createStore",
-                    pattern: "createStore",
-                    defaults: new {controller = "Store", action = "createStore"});
-                
-                endpoints.MapControllerRoute(
-                    name: "getBouquets",
-                    pattern: "getBouquets",
-                    defaults: new {controller = "Bouquet", action = "getAllBouquets"});
-
-                endpoints.MapControllerRoute(
-                    name: "createBouquet",
-                    pattern: "createBouquet",
-                    defaults: new {controller = "Bouequet", action = "createBouquet"});
-                
-                endpoints.MapControllerRoute(
-                    name: "getSales",
-                    pattern: "getSales",
-                    defaults: new {controller = "Sale", action = "getAllSales"});
-                
-                endpoints.MapControllerRoute(
-                    name: "createSaleCombination",
-                    pattern: "createSaleCombination",
-                    defaults: new {controller = "Sale", action = "createSaleCombination"});
-
-                endpoints.MapControllerRoute(
-                    name: "addSale",
-                    pattern: "addSale",
-                    defaults: new {controller = "Sale", action = "addSale"});
+                endpoints.MapControllers();
             });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
