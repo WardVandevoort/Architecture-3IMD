@@ -80,8 +80,8 @@ namespace Architecture_3IMD.Controllers
             _logger.LogInformation("Creating a bouquet", bouquet);
 
             //  Code that creates a new bouquet.
-            await _bouquetsRepository.Insert(bouquet.Id, bouquet.Name, bouquet.Price, bouquet.Description);
-            return Content("Bouquet created");
+            var persistedBouquet = await _bouquetsRepository.Insert(bouquet.Id, bouquet.Name, bouquet.Price, bouquet.Description);
+            return Created($"/bouquets/{persistedBouquet.Id}", persistedBouquet);
         }
 
     }

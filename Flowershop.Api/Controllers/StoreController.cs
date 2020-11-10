@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Architecture_3IMD.Models.Domain;
+using Architecture_3IMD.Models.Web;
 using Architecture_3IMD.Data;
 using Architecture_3IMD.Repositories;
 using System.IO;
@@ -71,13 +72,14 @@ namespace Architecture_3IMD.Controllers
           [HttpPost]
           [ProducesResponseType(200)]
           [ProducesResponseType(400)]
-          public async Task<IActionResult> createStore([FromBody]Stores store)
+          [ProducesResponseType(typeof(StoreWebOutput),StatusCodes.Status201Created)]
+          public async Task<IActionResult> createStore(StoreUpsertInput store)
           {
                _logger.LogInformation("Creating a store", store);
 
                //   Code that creates a new store.
-               await _storesRepository.Insert(store.Id, store.Name, store.Address, store.Region);
-               return Content("Store created");
+               var persistedStore = await _storesRepository.Insert(store.Id, store.Name, store.Address, store.Region);
+               return Created($"/stores/{persistedStore.Id}", persistedStore);
           }
 
     }

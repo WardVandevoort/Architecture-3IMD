@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Architecture_3IMD.Models.Domain;
+using Architecture_3IMD.Models.Web;
 using Architecture_3IMD.Data;
 using Architecture_3IMD.Repositories;
 using System.IO;
@@ -97,13 +98,14 @@ namespace Architecture_3IMD.Controllers
           [HttpPost]
           [ProducesResponseType(200)]
           [ProducesResponseType(400)]
-          public async Task<IActionResult> createSaleCombination([FromBody]Sale sale)
+          [ProducesResponseType(typeof(SaleWebOutput),StatusCodes.Status201Created)]
+          public async Task<IActionResult> createSaleCombination(SaleUpsertInput sale)
           {
                _logger.LogInformation("Adding a sale combination", sale);
 
                //   Code that creates a new sale combination.
-               await _salesRepository.Insert(sale.Id, sale.Store_id, sale.Bouquet_id, sale.Amount);
-               return Content("Sale combination added");
+               var persistedSale = await _salesRepository.Insert(sale.Id, sale.Store_id, sale.Bouquet_id, sale.Amount);
+               return Created($"/sales/{persistedSale.Id}", persistedSale);
           }
 
           /// <summary>
@@ -124,15 +126,13 @@ namespace Architecture_3IMD.Controllers
           [HttpPatch]
           [ProducesResponseType(200)]
           [ProducesResponseType(400)]
-          public async Task<IActionResult> addSale([FromBody]Sale sale)
+          public async Task<IActionResult> addSale(SaleUpsertInput sale)
           {
                _logger.LogInformation("Adding a new sale", sale);
 
                //   Code that adds a new sale.
-              
                await _salesRepository.Update(sale.Id, sale.Store_id, sale.Bouquet_id, sale.Amount);
-               
-               return Content("New sale added");
+               return Accepted();
           }
 
     }

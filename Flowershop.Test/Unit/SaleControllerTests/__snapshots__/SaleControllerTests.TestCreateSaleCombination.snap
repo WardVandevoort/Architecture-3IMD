@@ -1,0 +1,13 @@
+﻿{
+  "Location": "/sales/123",
+  "Value": {
+    "Id": 123,
+    "Store_id": 123,
+    "Bouquet_id": 123,
+    "Amount": 123
+  },
+  "Formatters": [],
+  "ContentTypes": [],
+  "DeclaredType": null,
+  "StatusCode": 201
+}

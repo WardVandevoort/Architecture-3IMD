@@ -1,0 +1,26 @@
+﻿{
+  "Value": [
+    {
+      "Id": 1,
+      "Store_id": 1,
+      "Bouquet_id": 1,
+      "Amount": 1
+    },
+    {
+      "Id": 2,
+      "Store_id": 2,
+      "Bouquet_id": 2,
+      "Amount": 2
+    },
+    {
+      "Id": 3,
+      "Store_id": 3,
+      "Bouquet_id": 3,
+      "Amount": 3
+    }
+  ],
+  "Formatters": [],
+  "ContentTypes": [],
+  "DeclaredType": null,
+  "StatusCode": 200
+}
