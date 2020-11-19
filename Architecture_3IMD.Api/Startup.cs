@@ -45,7 +45,7 @@ namespace Architecture_3IMD
                 dbContextOptions => dbContextOptions
                     .UseMySql(
                         // Replace with your connection string. Should be in your env but for example purposes this is _good enough_ for now
-                        "server=localhost;user=root;password=;database=architecture",
+                        Configuration.GetConnectionString("GlobalDatabase"),
                         // Replace with your server version and type.
                         mySqlOptions => mySqlOptions
                             .ServerVersion(new Version(10, 4, 11), ServerType.MySql)

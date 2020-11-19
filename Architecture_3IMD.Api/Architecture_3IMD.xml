@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Architecture_3IMD</name>
+    </assembly>
+    <members>
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.getAllBouquets()">
+            <summary>
+            Gets you a list of all the bouquets. If the bouquet does not exist, you get a 404. An empty list means "no bouquets available".
+            </summary>
+            <returns>A list of bouquets</returns>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.getOneBouquet(System.Int32)">
+            <summary>
+            Gets you a single bouquet. 
+            </summary>
+            <param name="Id">The unique identifier of the bouquet</param>
+            <returns>A single bouquet</returns>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.createBouquet(Architecture_3IMD.Models.Web.BouquetUpsertInput)">
+            <summary>
+            Creates a new bouquet. 
+            </summary>
+            <param name="input">The body of the bouquet</param>
+            <returns></returns>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.BouquetUpsertInput.Id">
+            <summary>
+            Unique identifier of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.BouquetUpsertInput.Name">
+            <summary>
+            Name of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.BouquetUpsertInput.Price">
+            <summary>
+            Price of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.BouquetUpsertInput.Description">
+            <summary>
+            Description of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.BouquetWebOutput.Id">
+            <summary>
+            Unique identifier of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.BouquetWebOutput.Name">
+            <summary>
+            Name of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.BouquetWebOutput.Price">
+            <summary>
+            Price of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.BouquetWebOutput.Description">
+            <summary>
+            Description of a bouquet.
+            </summary>
+        </member>
+
+        <member name="M:Architecture_3IMD.Controllers.StoreController.getAllStores()">
+            <summary>
+            Gets you a list of all the stores. If the store does not exist, you get a 404. An empty list means "no store available".
+            </summary>
+            <returns>A list of stores</returns>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.StoreController.getOneStore(System.Int32)">
+            <summary>
+            Gets you a single store. 
+            </summary>
+            <param name="Id">The unique identifier of the store</param>
+            <returns>A single store</returns>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.StoreController.createStore(Architecture_3IMD.Models.Web.StoreUpsertInput)">
+            <summary>
+            Creates a new store. 
+            </summary>
+            <param name="input">The body of the store</param>
+            <returns></returns>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.StoreUpsertInput.Id">
+            <summary>
+            Unique identifier of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.StoreUpsertInput.Name">
+            <summary>
+            Name of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.StoreUpsertInput.Address">
+            <summary>
+            Address of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.StoreUpsertInput.Region">
+            <summary>
+            Region of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.StoreWebOutput.Id">
+            <summary>
+            Unique identifier of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.StoreWebOutput.Name">
+            <summary>
+            Name of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.StoreWebOutput.Address">
+            <summary>
+            Address of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.StoreWebOutput.Region">
+            <summary>
+            Region of a store.
+            </summary>
+        </member>
+
+         <member name="M:Architecture_3IMD.Controllers.SalesController.getAllSales()">
+            <summary>
+            Gets you a list of all the sale combinations. If the sale does not exist, you get a 404. An empty list means "no sale available".
+            </summary>
+            <returns>A list of sale combinations</returns>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.SalesController.getOneSale(System.Int32)">
+            <summary>
+            Gets you a single sale combination. 
+            </summary>
+            <param name="Id">The unique identifier of the sale</param>
+            <returns>A single sale</returns>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.SalesController.createSaleCombination(Architecture_3IMD.Models.Web.SaleUpsertInput)">
+            <summary>
+            Creates a new sale combination. 
+            </summary>
+            <param name="input">The body of the sale</param>
+            <returns></returns>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.SalesController.addSale(Architecture_3IMD.Models.Web.SaleUpsertInput)">
+            <summary>
+            Adds a new sale. 
+            </summary>
+            <param name="input">The body of the sale</param>
+            <returns></returns>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.SaleUpsertInput.Id">
+            <summary>
+            Unique identifier of a sale.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.SaleUpsertInput.Store_id">
+            <summary>
+            Id of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.SaleUpsertInput.Bouquet_id">
+            <summary>
+            Id of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.SaleUpsertInput.Amount">
+            <summary>
+            Amount of sales.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.SaleWebOutput.Id">
+            <summary>
+            Unique identifier of a sale.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.SaleWebOutput.Store_id">
+            <summary>
+            Id of a store.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.SaleWebOutput.Bouquet_id">
+            <summary>
+            Id of a bouquet.
+            </summary>
+        </member>
+        <member name="P:Architecture_3IMD.Models.Web.SaleWebOutput.Amount">
+            <summary>
+            Amount of sales.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -67,7 +67,7 @@ namespace Architecture_3IMD.Test.Integration
             {
                 Body = new BouquetUpsertInput
                 {
-                    Id = 1,
+                    Id = 3,
                     Name = "test name",
                     Price = 123,
                     Description = "test description"
@@ -95,7 +95,7 @@ namespace Architecture_3IMD.Test.Integration
             {
                 Body = new BouquetUpsertInput
                 {
-                    Id = 1,
+                    Id = 4,
                     Name = string.Empty,
                     Price = 123,
                     Description = "test description"
@@ -116,7 +116,7 @@ namespace Architecture_3IMD.Test.Integration
             {
                 Body = new BouquetUpsertInput
                 {
-                    Id = 1,
+                    Id = 5,
                     Name = new string('c', 10001),
                     Price = 123,
                     Description = "test description"

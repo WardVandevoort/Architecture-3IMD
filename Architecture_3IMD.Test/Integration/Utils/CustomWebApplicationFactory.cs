@@ -22,9 +22,14 @@ namespace Architecture_3IMD.Test.Integration.Utils
 
                 services.Remove(descriptor);
 
+                var serviceProvider = new ServiceCollection()
+                .AddEntityFrameworkInMemoryDatabase()
+                .BuildServiceProvider();
+
                 services.AddDbContextPool<ApplicationDbContext>(options =>
                 {
                     options.UseInMemoryDatabase("InMemoryDbForTesting");
+                    options.UseInternalServiceProvider(serviceProvider);
                 });
 
                 var sp = services.BuildServiceProvider();

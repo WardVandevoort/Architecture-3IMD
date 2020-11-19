@@ -1,0 +1,21 @@
+version: "3.1"
+
+services:
+  service:
+    build: .
+    ports:
+      - "5001:80"
+    environment:
+      CONNECTIONSTRINGS__GLOBALDATABASE: "server=localhost;user=root;password=;database=architecture"
+    depends_on:
+      - "mariadb"
+
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mariadb-store:/var/lib/mysql

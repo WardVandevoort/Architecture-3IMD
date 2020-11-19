@@ -67,7 +67,7 @@ namespace Architecture_3IMD.Test.Integration
             {
                 Body = new SaleUpsertInput
                 {
-                    Id = 1,
+                    Id = 3,
                     Store_id = 123,
                     Bouquet_id = 123,
                     Amount = 123

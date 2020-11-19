@@ -67,7 +67,7 @@ namespace Architecture_3IMD.Test.Integration
             {
                 Body = new StoreUpsertInput
                 {
-                    Id = 1,
+                    Id = 3,
                     Name = "test name",
                     Address = "test address",
                     Region = "test region"
@@ -95,7 +95,7 @@ namespace Architecture_3IMD.Test.Integration
             {
                 Body = new StoreUpsertInput
                 {
-                    Id = 1,
+                    Id = 4,
                     Name = string.Empty,
                     Address = "test address",
                     Region = "test region"
@@ -116,7 +116,7 @@ namespace Architecture_3IMD.Test.Integration
             {
                 Body = new StoreUpsertInput
                 {
-                    Id = 1,
+                    Id = 5,
                     Name = new string('c', 10001),
                     Address = "test address",
                     Region = "test region"
