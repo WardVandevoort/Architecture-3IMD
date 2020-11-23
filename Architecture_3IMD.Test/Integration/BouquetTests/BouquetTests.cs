@@ -28,7 +28,7 @@ namespace Architecture_3IMD.Test.Integration
             _factory.ResetAndSeedDatabase((db) => { });
             var response = await client.GetAsync("/Flowershop/Bouquet");
             response.EnsureSuccessStatusCode(); // Status Code 200-299
-            Snapshot.Match(await response.Content.ReadAsStringAsync());
+            Snapshot.Match(await response.Content.ReadAsStringAsync(), matchOptions => matchOptions.IgnoreField("Id"));
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace Architecture_3IMD.Test.Integration
             });
             var response = await client.GetAsync("/Flowershop/Bouquet");
             response.EnsureSuccessStatusCode(); // Status Code 200-299
-            Snapshot.Match(await response.Content.ReadAsStringAsync());
+            Snapshot.Match(await response.Content.ReadAsStringAsync(), matchOptions => matchOptions.IgnoreField("Id"));
         }
 
         [Fact]
@@ -82,7 +82,7 @@ namespace Architecture_3IMD.Test.Integration
             body.Description.Should().Be("test description");
             var getResponse = await client.GetAsync($"/Flowershop/Bouquet/{body.Id}");
             getResponse.EnsureSuccessStatusCode();
-            Snapshot.Match(await getResponse.Content.ReadAsStringAsync());
+            Snapshot.Match(await getResponse.Content.ReadAsStringAsync(), matchOptions => matchOptions.IgnoreField("Id"));
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace Architecture_3IMD.Test.Integration
             };
             var createResponse = await client.PostAsync("/Flowershop/Bouquet", ContentHelper.GetStringContent(request.Body));
             createResponse.StatusCode.Should().Be(400);
-            Snapshot.Match(await createResponse.Content.ReadAsStringAsync());
+            Snapshot.Match(await createResponse.Content.ReadAsStringAsync(), matchOptions => matchOptions.IgnoreField("Id"));
         }
 
         [Fact]
@@ -124,7 +124,7 @@ namespace Architecture_3IMD.Test.Integration
             };
             var createResponse = await client.PostAsync("/Flowershop/Bouquet", ContentHelper.GetStringContent(request.Body));
             createResponse.StatusCode.Should().Be(400);
-            Snapshot.Match(await createResponse.Content.ReadAsStringAsync());
+            Snapshot.Match(await createResponse.Content.ReadAsStringAsync(), matchOptions => matchOptions.IgnoreField("Id"));
         }
 
     }

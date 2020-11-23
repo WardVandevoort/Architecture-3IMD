@@ -28,7 +28,7 @@ namespace Architecture_3IMD.Test.Integration
             _factory.ResetAndSeedDatabase((db) => { });
             var response = await client.GetAsync("/Flowershop/Sale");
             response.EnsureSuccessStatusCode(); // Status Code 200-299
-            Snapshot.Match(await response.Content.ReadAsStringAsync());
+            Snapshot.Match(await response.Content.ReadAsStringAsync(), matchOptions => matchOptions.IgnoreField("Id"));
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace Architecture_3IMD.Test.Integration
             });
             var response = await client.GetAsync("/Flowershop/Sale");
             response.EnsureSuccessStatusCode(); // Status Code 200-299
-            Snapshot.Match(await response.Content.ReadAsStringAsync());
+            Snapshot.Match(await response.Content.ReadAsStringAsync(), matchOptions => matchOptions.IgnoreField("Id"));
         }
 
         [Fact]
@@ -82,7 +82,7 @@ namespace Architecture_3IMD.Test.Integration
             body.Amount.Should().Be(123);
             var getResponse = await client.GetAsync($"/Flowershop/Sale/{body.Id}");
             getResponse.EnsureSuccessStatusCode();
-            Snapshot.Match(await getResponse.Content.ReadAsStringAsync());
+            Snapshot.Match(await getResponse.Content.ReadAsStringAsync(), matchOptions => matchOptions.IgnoreField("Id"));
         }
 
     }
