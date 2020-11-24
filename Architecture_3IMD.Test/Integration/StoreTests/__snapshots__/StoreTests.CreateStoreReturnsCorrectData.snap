@@ -1,1 +1,6 @@
-﻿{"id":3,"name":"test name","address":"test address","region":"test region"}
+﻿{
+  "Id": 3,
+  "Name": "test name",
+  "Address": "test address",
+  "Region": "test region"
+}

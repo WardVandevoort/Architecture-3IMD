@@ -1,1 +1,6 @@
-﻿{"id":3,"name":"test name","price":123,"description":"test description"}
+﻿{
+  "Id": 3,
+  "Name": "test name",
+  "Price": 123,
+  "Description": "test description"
+}
