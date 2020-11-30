@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Architecture_3IMD.Models.Domain;
+using System;
 
 namespace Architecture_3IMD.Migrations
 {
@@ -39,7 +41,9 @@ namespace Architecture_3IMD.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Bouquets");
+
                 });
+
 #pragma warning restore 612, 618
         }
     }

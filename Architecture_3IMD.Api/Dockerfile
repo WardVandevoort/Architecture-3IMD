@@ -11,4 +11,4 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 # Copy over the xml file
 COPY --from=build-env /app/Architecture_3IMD.xml .
-ENTRYPOINT ["dotnet", "./Architecture_3IMD.dll"]
+ENTRYPOINT ["dotnet", "./Architecture-3IMD.dll"]

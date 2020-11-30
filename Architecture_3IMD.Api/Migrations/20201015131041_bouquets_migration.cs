@@ -20,6 +20,19 @@ namespace Architecture_3IMD.Migrations
                 {
                     table.PrimaryKey("PK_Bouquets", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Bouquets",
+                columns: new[] { "Id", "Name", "Price", "Description" },
+                values: new object[,]
+                {
+                    {1, "Roses", 25, "Red roses"},
+                    {2, "Orchids", 20, "White orchids"},
+                    {3, "Violets", 15, "Violet violets"},
+                    {4, "Tulips", 18, "Dutch tulips"},
+                    {5, "Crocusses", 17, "A bouquet of crocusses"}
+                    
+                });   
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

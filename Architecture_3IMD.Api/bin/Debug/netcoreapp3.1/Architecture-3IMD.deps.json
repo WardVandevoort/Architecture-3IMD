@@ -31,6 +31,7 @@
           "Pomelo.EntityFrameworkCore.MySql": "3.2.3",
           "Swashbuckle.AspNetCore": "5.5.0",
           "System.Data.SqlClient": "4.8.2",
+          "Mongodb": "1.7.1.4791",
           "mysql": "5.5.14.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -725,6 +726,22 @@
         "dependencies": {
           "System.Security.AccessControl": "4.7.0",
           "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "Mongodb/1.7.1.4791": {
+        "runtime": {
+          "lib/net40/MongoDB.Bson.dll": {
+            "assemblyVersion": "1.7.1.4791",
+            "fileVersion": "1.7.1.4791"
+          },
+          "lib/net40/MongoDB.Driver.dll": {
+            "assemblyVersion": "1.7.1.4791",
+            "fileVersion": "1.7.1.4791"
+          }
+        },
+        "compile": {
+          "lib/net40/MongoDB.Bson.dll": {},
+          "lib/net40/MongoDB.Driver.dll": {}
         }
       },
       "mysql/5.5.14.1": {
@@ -3334,6 +3351,13 @@
       "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
       "path": "microsoft.win32.registry/4.7.0",
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
+    },
+    "Mongodb/1.7.1.4791": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QgsvxSM/itQd796w+YtprQc8W8DGvbEcXyRKrZHG4oU4GWSaqp3bFpGqWo1xBWPu+WTupNOQbMwwmAiQL36kPg==",
+      "path": "mongodb/1.7.1.4791",
+      "hashPath": "mongodb.1.7.1.4791.nupkg.sha512"
     },
     "mysql/5.5.14.1": {
       "type": "package",

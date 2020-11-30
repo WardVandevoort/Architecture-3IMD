@@ -20,6 +20,19 @@ namespace Architecture_3IMD.Migrations
                 {
                     table.PrimaryKey("PK_Stores", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Stores",
+                columns: new[] { "Id", "Name", "Address", "Region" },
+                values: new object[,]
+                {
+                    {1, "Bloemen Ver Elst", "Montystraat 100", "Tremelo"},
+                    {2, "Fleur", "Pastoriestraat 162", "Tremelo"},
+                    {3, "Passie-Flora", "Liersesteenweg 30", "Mechelen"},
+                    {4, "Potvolbloeme", "Stationstraat 42", "Mechelen"},
+                    {5, "Het Bloemke", "Zandpoortvest 12", "Mechelen"}
+                    
+                }); 
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

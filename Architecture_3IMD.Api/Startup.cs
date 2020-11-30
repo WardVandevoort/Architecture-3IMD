@@ -21,14 +21,18 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
 using System.Text.Json.Serialization;
+using Microsoft.Extensions.Options;
+
 
 namespace Architecture_3IMD
 {
     public class Startup
     {
+        string Db1;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Db1 = configuration.GetConnectionString("SQL");
         }
 
         public IConfiguration Configuration { get; }
@@ -45,15 +49,21 @@ namespace Architecture_3IMD
                 dbContextOptions => dbContextOptions
                     .UseMySql(
                         // Replace with your connection string. Should be in your env but for example purposes this is _good enough_ for now
-                        Configuration.GetConnectionString("GlobalDatabase"),
+                        //Configuration.GetConnectionString("GlobalDatabase"),
+                        Db1,
                         // Replace with your server version and type.
                         mySqlOptions => mySqlOptions
                             .ServerVersion(new Version(10, 4, 11), ServerType.MySql)
                             .CharSetBehavior(CharSetBehavior.NeverAppend)
             ));
+            services.Configure<SalesDbContext>(
+                Configuration.GetSection(nameof(SalesDbContext)));
+            services.AddMemoryCache();
+            services.AddSingleton<ISalesDbContext>(sp =>
+                sp.GetRequiredService<IOptions<SalesDbContext>>().Value);
             services.AddTransient<IBouquetsRepository, BouquetsRepository>();
             services.AddTransient<IStoresRepository, StoresRepository>();
-            services.AddTransient<ISalesRepository, SalesRepository>();
+            services.AddTransient<ISaleRepository, SaleRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo

@@ -352,3 +352,5 @@ C:\Users\Gebruiker\Desktop\Webtech\Fase 3\Flowershop\Architecture_3IMD.Api\obj\D
 C:\Users\Gebruiker\Desktop\Webtech\Fase 3\Flowershop\Architecture_3IMD.Api\obj\Debug\netcoreapp3.1\Architecture-3IMD.pdb
 C:\Users\Gebruiker\Desktop\Webtech\Fase 3\Flowershop\Architecture_3IMD.Api\obj\Debug\netcoreapp3.1\Architecture-3IMD.genruntimeconfig.cache
 C:\Users\Gebruiker\Desktop\Webtech\Fase 3\Flowershop\Architecture_3IMD.Api\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Gebruiker\Desktop\Webtech\Fase 3\Flowershop\Architecture_3IMD.Api\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+C:\Users\Gebruiker\Desktop\Webtech\Fase 3\Flowershop\Architecture_3IMD.Api\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
