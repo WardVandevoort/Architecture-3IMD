@@ -9,12 +9,12 @@ namespace Architecture_3IMD.Models.Web
     public class CreateSaleDto
     {
         [Required]
-         int Id { get; set; }
-         int Store_id { get; set; }
-         int Bouquet_id { get; set; }
-         int Amount { get; set; }
-         string FirstName { get; set; }
-         string LastName { get; set; }
+        public string Id { get; set; }
+        public int Store_id { get; set; }
+        public int Bouquet_id { get; set; }
+        public int Amount { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 
      public class SaleLinks
@@ -45,7 +45,7 @@ namespace Architecture_3IMD.Models.Web
         }
 
         public SaleLinks Meta { get; set; }
-        public int Id { get; set; }
+        public string Id { get; set; }
         public int Store_id { get; set; }
         public int Bouquet_id { get; set; }
         public int Amount { get; set; }

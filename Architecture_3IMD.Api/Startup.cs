@@ -57,7 +57,7 @@ namespace Architecture_3IMD
                             .CharSetBehavior(CharSetBehavior.NeverAppend)
             ));
             services.Configure<SalesDbContext>(
-                Configuration.GetSection(nameof(SalesDbContext)));
+                Configuration.GetSection(nameof(FlowershopSalesDatabaseSettings)));
             services.AddMemoryCache();
             services.AddSingleton<ISalesDbContext>(sp =>
                 sp.GetRequiredService<IOptions<SalesDbContext>>().Value);

@@ -70,10 +70,6 @@
               "target": "Package",
               "version": "[4.8.2, )"
             },
-            "mongodb": {
-              "target": "Package",
-              "version": "[1.7.1.4791, )"
-            },
             "mysql": {
               "target": "Package",
               "version": "[5.5.14.1, )"

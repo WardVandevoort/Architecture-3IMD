@@ -459,17 +459,6 @@
           }
         }
       },
-      "Mongodb/1.7.1.4791": {
-        "type": "package",
-        "compile": {
-          "lib/net40/MongoDB.Bson.dll": {},
-          "lib/net40/MongoDB.Driver.dll": {}
-        },
-        "runtime": {
-          "lib/net40/MongoDB.Bson.dll": {},
-          "lib/net40/MongoDB.Driver.dll": {}
-        }
-      },
       "MongoDB.Bson/2.11.4": {
         "type": "package",
         "compile": {
@@ -3110,31 +3099,6 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Mongodb/1.7.1.4791": {
-      "sha512": "QgsvxSM/itQd796w+YtprQc8W8DGvbEcXyRKrZHG4oU4GWSaqp3bFpGqWo1xBWPu+WTupNOQbMwwmAiQL36kPg==",
-      "type": "package",
-      "path": "mongodb/1.7.1.4791",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "License.rtf",
-        "Release Notes v1.7.1.txt",
-        "lib/net35/MongoDB.Bson.XML",
-        "lib/net35/MongoDB.Bson.dll",
-        "lib/net35/MongoDB.Bson.pdb",
-        "lib/net35/MongoDB.Driver.XML",
-        "lib/net35/MongoDB.Driver.dll",
-        "lib/net35/MongoDB.Driver.pdb",
-        "lib/net40/MongoDB.Bson.dll",
-        "lib/net40/MongoDB.Bson.pdb",
-        "lib/net40/MongoDB.Bson.xml",
-        "lib/net40/MongoDB.Driver.XML",
-        "lib/net40/MongoDB.Driver.dll",
-        "lib/net40/MongoDB.Driver.pdb",
-        "mongodb.1.7.1.4791.nupkg.sha512",
-        "mongodb.nuspec"
       ]
     },
     "MongoDB.Bson/2.11.4": {
@@ -7828,7 +7792,6 @@
       "Pomelo.EntityFrameworkCore.MySql >= 3.2.3",
       "Swashbuckle.AspNetCore >= 5.5.0",
       "System.Data.SqlClient >= 4.8.2",
-      "mongodb >= 1.7.1.4791",
       "mysql >= 5.5.14.1"
     ]
   },
@@ -7901,10 +7864,6 @@
             "target": "Package",
             "version": "[4.8.2, )"
           },
-          "mongodb": {
-            "target": "Package",
-            "version": "[1.7.1.4791, )"
-          },
           "mysql": {
             "target": "Package",
             "version": "[5.5.14.1, )"
@@ -7931,17 +7890,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Mongodb 1.7.1.4791' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Mongodb",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

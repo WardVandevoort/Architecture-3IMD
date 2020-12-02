@@ -39,9 +39,8 @@ namespace Architecture_3IMD.Controllers
         /// Get a single sale by id.
         ///</summary>
         ///<param name="Id">The primary key of the sale object.</param>
-        //[HttpGet("/dogs/{id}", Name = nameof(GetDog))]
-        [HttpGet("{Id}")]
-        public async Task<IActionResult> GetSale(int Id)
+        [HttpGet("/sales/{Id}", Name = nameof(GetSale))]
+        public async Task<IActionResult> GetSale(string Id)
         {
             var sales = await GetAllSalesFromCacheAsync();
             var sale = sales.FirstOrDefault(x => x.Id == Id);
@@ -77,8 +76,7 @@ namespace Architecture_3IMD.Controllers
                Bouquet_id = saleDto.Bouquet_id,
                Amount = saleDto.Amount,
                FirstName = saleDto.FirstName,
-               LastName = saleDto.LastName,
-               Meta = meta
+               LastName = saleDto.LastName
             };
             await _saleRepository.InsertSaleAsync(sale);
             _memoryCache.Remove(CacheKeys.AllSales);

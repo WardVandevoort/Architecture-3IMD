@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1o/TiDJuZa0dQGthNPnOBUVvCY7Gvgy7X6SJTGsnbPueiCRqvsJ1+uKcwyUijYXXsOC7clazYvbv2cq7SKNpmw==",
+  "dgSpecHash": "oSI0oQxMOD9JyvgxLFkoN8hF8EsWuNDP+2kl9K73v/oFHf6uuYDdtLKfNAkXjZpHi0zjISMBnMK0lw2vLFDDAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
   "expectedPackageFiles": [
@@ -41,7 +41,6 @@
     "C:\\Users\\Gebruiker\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\mongodb\\1.7.1.4791\\mongodb.1.7.1.4791.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\mongodb.bson\\2.11.4\\mongodb.bson.2.11.4.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\mongodb.driver\\2.11.4\\mongodb.driver.2.11.4.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\mongodb.driver.core\\2.11.4\\mongodb.driver.core.2.11.4.nupkg.sha512",
@@ -156,16 +155,5 @@
     "C:\\Users\\Gebruiker\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Mongodb 1.7.1.4791' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Mongodb",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

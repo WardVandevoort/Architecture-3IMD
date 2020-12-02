@@ -56,70 +56,31 @@
             <response code="201">If new bouquet was successfully created.</response>
             <response code="400">If one or more required fields are null.</response>   
         </member>
-        <member name="M:Architecture_3IMD.Controllers.SaleController.getAllSales">
+        <member name="M:Architecture_3IMD.Controllers.SaleController.GetSales">
             <summary>
-            Gets a list of all the stores and the amount of sales per bouquet.
+             Get all sales
             </summary>
-            <remarks>
-            Sample request:
-            
-                GET Flowershop/Sale
-                {   
-                  "Id": 1,    
-                  "Store_id": 1,
-                  "Bouquet_id": 1,
-                  "Amount": 10        
-                }
-            </remarks>   
-            <response code="200">If GET request was successfully executed.</response>
         </member>
-        <member name="M:Architecture_3IMD.Controllers.SaleController.getOneSale(System.Int32)">
+        <member name="M:Architecture_3IMD.Controllers.SaleController.GetSale(System.String)">
             <summary>
-            Gets a single sale combination.
+             Get a single sale by id.
             </summary>
-            <remarks>
-            Sample request:
-            
-                GET Flowershop/Sale
-                {   
-                  "Id": 1       
-                }
-            </remarks> 
-            <param name="Id">The unique identifier of the sale combination</param>  
-            <response code="200">If GET request was successfully executed.</response>
+            <param name="Id">The primary key of the sale object.</param>
         </member>
-        <member name="M:Architecture_3IMD.Controllers.SaleController.createSaleCombination(Architecture_3IMD.Models.Web.SaleUpsertInput)">
+        <member name="M:Architecture_3IMD.Controllers.SaleController.CreateSale(Architecture_3IMD.Models.Web.CreateSaleDto)">
             <summary>
-            Creates a new store/bouquet sale combination.
+             Creates a new sale
             </summary>
             <remarks>
-            Sample request:
+             Sample request:
             
-                POST Flowershop/Sale
-                {        
-                  "Store_id": 1,
-                  "Bouquet_id": 1      
-                }
-            </remarks>
-            <response code="201">If new combination was successfully added.</response>
-            <response code="400">If one or more required fields are null.</response>   
-        </member>
-        <member name="M:Architecture_3IMD.Controllers.SaleController.addSale(Architecture_3IMD.Models.Web.SaleUpsertInput)">
-            <summary>
-            Adds a new sale.
-            </summary>
-            <remarks>
-            Sample request:
-            
-                PATCH Flowershop/Sale
-                {        
-                  "Store_id": 1,
-                  "Bouquet_id": 1,
-                  "Amount": (default is 1 if no amount is specified)     
-                }
-            </remarks>
-            <response code="202">If new sale was successfully added.</response>
-            <response code="400">If one or more required fields are null.</response>   
+                 POST /dogs
+                 {
+                    "Name": "Jeff",
+                    "PottyTrained": true,
+                    "Barks": true
+                 }
+             </remarks>
         </member>
         <member name="M:Architecture_3IMD.Controllers.StoreController.getAllStores">
             <summary>
