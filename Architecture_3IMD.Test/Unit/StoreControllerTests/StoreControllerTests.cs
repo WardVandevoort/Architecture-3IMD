@@ -50,21 +50,21 @@ namespace Architecture_3IMD.Test
         {
             var returnSet = new[]
             {
-                new Stores
+                new Store
                 {
                     Id = 1,
                     Name = "test name 1",
                     Address = "test address 1",
                     Region = "test region 1"
                 },
-                new Stores
+                new Store
                 {
                     Id = 2,
                     Name = "test name 2",
                     Address = "test address 2",
                     Region = "test region 2"
                 },
-                new Stores
+                new Store
                 {
                     Id = 3,
                     Name = "test name 3",
@@ -89,7 +89,7 @@ namespace Architecture_3IMD.Test
         [Fact]
         public async Task TestCreateStore()
         {
-            var store = new Stores()
+            var store = new Store()
             {
                 Id = 1,
                 Name = "test name",

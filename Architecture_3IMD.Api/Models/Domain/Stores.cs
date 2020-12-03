@@ -8,7 +8,7 @@ using System.Web;
 namespace Architecture_3IMD.Models.Domain
 {
 
-public class Stores
+public class Store
 {
      [Key]
      [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

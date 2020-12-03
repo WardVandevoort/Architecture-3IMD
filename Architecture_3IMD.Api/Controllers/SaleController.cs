@@ -17,13 +17,13 @@ namespace Architecture_3IMD.Controllers
     [Produces("application/json")]
     public class SaleController : Controller
     {
-        private readonly ISaleRepository _saleRepository;
+        private readonly ISalesRepository _salesRepository;
         private readonly IMemoryCache _memoryCache;
         private readonly ILogger<SaleController> _logger;
 
-        public SaleController(ILogger<SaleController> logger, ISaleRepository saleRepository, IMemoryCache memoryCache)
+        public SaleController(ILogger<SaleController> logger, ISalesRepository salesRepository, IMemoryCache memoryCache)
         {
-            _saleRepository = saleRepository;
+            _salesRepository = salesRepository;
             _memoryCache = memoryCache;
             _logger = logger;
         }
@@ -77,7 +77,7 @@ namespace Architecture_3IMD.Controllers
                FirstName = saleDto.FirstName,
                LastName = saleDto.LastName
             };
-            await _saleRepository.InsertSaleAsync(sale);
+            await _salesRepository.InsertSaleAsync(sale);
             _memoryCache.Remove(CacheKeys.AllSales);
             // Debatable if you want to do a fetch from the cache or a fetch directly from the db. This all depends on your configuration
             var returningSale = (await GetAllSalesFromCacheAsync()).FirstOrDefault(x => x.Id == sale.Id);
@@ -89,7 +89,7 @@ namespace Architecture_3IMD.Controllers
 
         private async Task<List<ViewSaleDto>> GetAllSalesAsViewDto()
         {
-            var sales = await _saleRepository.GetAllSalesAsync();
+            var sales = await _salesRepository.GetAllSalesAsync();
             return sales.Select(x => new ViewSaleDto(x, new SaleLinks(Url.Link(nameof(GetSale), new { Id = x.Id })))).ToList();
         }
 

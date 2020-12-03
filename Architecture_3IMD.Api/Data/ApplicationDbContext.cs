@@ -14,7 +14,7 @@ namespace Architecture_3IMD.Data
         }
 
         public DbSet<Bouquet> Bouquets { get; set; }
-        public DbSet<Stores> Stores { get; set; }
+        public DbSet<Store> Stores { get; set; }
         public DbSet<Sale> Sales { get; set; }
 
         

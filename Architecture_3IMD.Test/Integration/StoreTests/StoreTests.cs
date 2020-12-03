@@ -37,14 +37,14 @@ namespace Architecture_3IMD.Test.Integration
             var client = _factory.CreateClient();
             _factory.ResetAndSeedDatabase((db) =>
             {
-                db.Stores.Add(new Stores() 
+                db.Stores.Add(new Store() 
                     {
                     Id = 1,
                     Name = "test name 1",
                     Address = "test address 1",
                     Region = "test region 1"
                     });
-                db.Stores.Add(new Stores() 
+                db.Stores.Add(new Store() 
                     {
                     Id = 2,
                     Name = "test name 2",

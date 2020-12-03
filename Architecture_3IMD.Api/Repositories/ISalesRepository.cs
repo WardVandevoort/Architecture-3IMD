@@ -5,7 +5,7 @@ using Architecture_3IMD.Models.Domain;
 
 namespace Architecture_3IMD.Repositories
 {
-    public interface ISaleRepository
+    public interface ISalesRepository
     {
         Task<List<Sale>> GetAllSalesAsync();
         Task InsertSaleAsync(Sale sale);

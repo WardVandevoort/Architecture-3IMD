@@ -63,7 +63,7 @@ namespace Architecture_3IMD
                 sp.GetRequiredService<IOptions<SalesDbContext>>().Value);
             services.AddTransient<IBouquetsRepository, BouquetsRepository>();
             services.AddTransient<IStoresRepository, StoresRepository>();
-            services.AddTransient<ISaleRepository, SaleRepository>();
+            services.AddTransient<ISalesRepository, SalesRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo

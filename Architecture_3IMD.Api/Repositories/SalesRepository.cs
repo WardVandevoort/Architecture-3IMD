@@ -11,12 +11,12 @@ using Architecture_3IMD.Repositories;
 namespace Architecture_3IMD.Repositories
 {
 
-    public class SaleRepository : ISaleRepository
+    public class SalesRepository : ISalesRepository
     {
         public IMongoCollection<Sale> Sales { get; }
         public MongoClient MongoClient { get; }
 
-        public SaleRepository(ISalesDbContext settings)
+        public SalesRepository(ISalesDbContext settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
