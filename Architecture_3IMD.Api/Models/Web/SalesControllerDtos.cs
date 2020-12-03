@@ -8,8 +8,6 @@ namespace Architecture_3IMD.Models.Web
     // DTOs this is actually more readable. Do not do this for complex objects and try to group them by domain. 
     public class CreateSaleDto
     {
-        [Required]
-        public string Id { get; set; }
         public int Store_id { get; set; }
         public int Bouquet_id { get; set; }
         public int Amount { get; set; }

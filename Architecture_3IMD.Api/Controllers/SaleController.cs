@@ -71,7 +71,6 @@ namespace Architecture_3IMD.Controllers
         {
             var sale = new Sale
             {
-               Id = saleDto.Id,
                Store_id = saleDto.Store_id,
                Bouquet_id = saleDto.Bouquet_id,
                Amount = saleDto.Amount,
