@@ -29,17 +29,44 @@ namespace Architecture_3IMD.Controllers
         }
 
         ///<summary>
-        /// Get all sales
+        /// Gets a list of all the sales.
         ///</summary>
-        //[HttpGet("/Sales", Name = nameof(GetCats))]
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     GET Flowershop/Sale
+        ///     {   
+        ///       "Id": "5fc8d4bd026533d540f873aa",    
+        ///       "Store_id": 1,
+        ///       "Bouquet_id": 1,
+        ///       "Amount": 10,
+        ///       "FirstName": "John",
+        ///       "LastName": "Doe"       
+        ///     }
+        /// </remarks>   
+        /// <response code="200">If GET request was successfully executed.</response>
         [HttpGet]
         public async Task<IActionResult> GetSales() => Ok(await GetAllSalesFromCacheAsync());
 
         ///<summary>
-        /// Get a single sale by id.
+        /// Gets a single sale.
         ///</summary>
-        ///<param name="Id">The primary key of the sale object.</param>
-        [HttpGet("/sales/{Id}", Name = nameof(GetSale))]
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     GET Flowershop/Sale
+        ///     {   
+        ///       "Id": "5fc8d4bd026533d540f873aa",    
+        ///       "Store_id": 1,
+        ///       "Bouquet_id": 1,
+        ///       "Amount": 10,
+        ///       "FirstName": "John",
+        ///       "LastName": "Doe" 
+        ///     }
+        /// </remarks>  
+        /// <param name="Id">The unique identifier of the sale</param> 
+        /// <response code="200">If GET request was successfully executed.</response>
+        [HttpGet("{Id}", Name = nameof(GetSale))]
         public async Task<IActionResult> GetSale(string Id)
         {
             var sales = await GetAllSalesFromCacheAsync();
@@ -52,19 +79,23 @@ namespace Architecture_3IMD.Controllers
         }
 
         ///<summary>
-        /// Creates a new sale
+        /// Creates a new sale.
         ///</summary>
         ///<remarks>
         /// Sample request:
         ///
-        ///     POST /dogs
-        ///     {
-        ///        "Name": "Jeff",
-        ///        "PottyTrained": true,
-        ///        "Barks": true
+        ///     POST Flowershop/Sale
+        ///     {        
+        ///       "Store_id": 1,
+        ///       "Bouquet_id": 1,
+        ///       "Amount": 10,
+        ///       "FirstName": "John",
+        ///       "LastName": "Doe"         
         ///     }
         /// </remarks>
-        [HttpPost("/sales", Name = nameof(CreateSale))]
+        /// <response code="201">If new sale was successfully created.</response>
+        /// <response code="400">If one or more required fields are null.</response>   
+        [HttpPost(Name = nameof(CreateSale))]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateSale([FromBody] CreateSaleDto saleDto)

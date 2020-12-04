@@ -27,7 +27,7 @@ namespace Architecture_3IMD.Repositories
         public async Task<List<Sale>> GetAllSalesAsync()
         {
             // you always need a filter when using mongodb
-            var findCursor = await Sales.OfType<Sale>().FindAsync(x => true);
+            var findCursor = await Sales.FindAsync(x => true);
             return await findCursor.ToListAsync();
         }
 
