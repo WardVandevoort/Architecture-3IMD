@@ -48,6 +48,13 @@ namespace Architecture_3IMD.Controllers
         [HttpGet]
         public async Task<IActionResult> GetSales() => Ok(await GetAllSalesFromCacheAsync());
 
+        [HttpGet("Overview")]
+        public async Task<IActionResult> GetSalesOverview()
+        {
+        var list = await GetAllSalesFromCacheAsync();
+        return Ok(list[0]);
+
+        }
         ///<summary>
         /// Gets a single sale.
         ///</summary>

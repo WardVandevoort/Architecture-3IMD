@@ -23,6 +23,12 @@ using System.IO;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Options;
 
+using System.Net.Http;
+using BasisRegisters.Vlaanderen;
+using Microsoft.AspNetCore.Mvc;
+using Polly;
+using Polly.Extensions.Http;
+
 
 namespace Architecture_3IMD
 {
@@ -40,7 +46,19 @@ namespace Architecture_3IMD
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Notice you don't add IBasisRegisterService directly. Since you add a service for the HttpClient 
+            // it depends on it's automatically added with the correct lifecycle.
+            // HttpClients are pretty complex in .NET Core.
+            services.AddHttpClient<IBasisRegisterService, BasisRegisterService>(
+                // since provider is not used we can discard it (i.e. replace it with an underscore)
+                // (provider, client) =>
 
+                (_, client) =>
+                {
+                    // needless to say, better in config. We pass the api baseuri here.
+                    client.BaseAddress = new Uri("https://api.basisregisters.vlaanderen.be");
+                })
+                .AddPolicyHandler(GetRetryPolicy());
             services.AddControllers();
     
             // this helper method says "whenever you need a database context, create one using the options specified in my builder".
@@ -115,6 +133,16 @@ namespace Architecture_3IMD
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Flowershop API V1");
             });
 
+            static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+            {
+            // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly
+            // You can just "read" this part of the code, it does what you think it does.
+            return HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+                .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2,
+                    retryAttempt)));
+            }
         } 
     }
 }
