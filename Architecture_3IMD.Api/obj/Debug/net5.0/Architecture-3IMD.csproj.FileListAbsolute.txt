@@ -1,0 +1,2 @@
+C:\Users\Gebruiker\Desktop\Webtech\Fase 3\Flowershop\Architecture_3IMD.Api\obj\Debug\net5.0\Architecture-3IMD.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Desktop\Webtech\Fase 3\Flowershop\Architecture_3IMD.Api\obj\Debug\net5.0\Architecture-3IMD.GeneratedMSBuildEditorConfig.editorconfig
