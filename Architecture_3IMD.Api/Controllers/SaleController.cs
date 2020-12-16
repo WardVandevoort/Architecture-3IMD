@@ -51,10 +51,19 @@ namespace Architecture_3IMD.Controllers
         [HttpGet("Overview")]
         public async Task<IActionResult> GetSalesOverview()
         {
-        var list = await GetAllSalesFromCacheAsync();
-        return Ok(list[0]);
-
+        var sales = await GetAllSalesFromCacheAsync();
+        var overview = from sale in sales
+                       group sale by sale.Bouquet_id into bouquetOverview
+                       select new
+                       {
+                            Bouquet_id = bouquetOverview.Key,
+                            TotalAmountSold = bouquetOverview.Sum(x => x.Amount),
+                       };
+                       
+        overview = overview.OrderByDescending(bouquetOverview => bouquetOverview.TotalAmountSold);
+        return Ok(overview);
         }
+
         ///<summary>
         /// Gets a single sale.
         ///</summary>

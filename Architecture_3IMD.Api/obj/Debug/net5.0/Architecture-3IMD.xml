@@ -1,0 +1,1581 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Architecture-3IMD</name>
+    </assembly>
+    <members>
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.getAllBouquets">
+            <summary>
+            Gets a list of all the bouquets.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                GET Flowershop/Bouquet
+                {   
+                  "Id": 1,    
+                  "Name": "Roses",
+                  "Price": 20,
+                  "Description": "A bouquet of red roses"        
+                }
+            </remarks>   
+            <response code="200">If GET request was successfully executed.</response>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.getOneBouquet(System.Int32)">
+            <summary>
+            Gets a single bouquet.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                GET Flowershop/Bouquet
+                {   
+                  "Id": 1,    
+                  "Name": "Roses",
+                  "Price": 20,
+                  "Description": "A bouquet of red roses" 
+                }
+            </remarks>  
+            <param name="Id">The unique identifier of the bouquet</param> 
+            <response code="200">If GET request was successfully executed.</response>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.createBouquet(Architecture_3IMD.Models.Web.BouquetUpsertInput)">
+            <summary>
+            Creates a new bouquet.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST Flowershop/Bouquet
+                {        
+                  "Name": "Roses",
+                  "Price": 20,
+                  "Description": "A bouquet of red roses"        
+                }
+            </remarks>
+            <response code="201">If new bouquet was successfully created.</response>
+            <response code="400">If one or more required fields are null.</response>   
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.SaleController.GetSales">
+            <summary>
+             Gets a list of all the sales.
+            </summary>
+             <remarks>
+             Sample request:
+             
+                 GET Flowershop/Sale
+                 {   
+                   "Id": "5fc8d4bd026533d540f873aa",    
+                   "Store_id": 1,
+                   "Bouquet_id": 1,
+                   "Amount": 10,
+                   "FirstName": "John",
+                   "LastName": "Doe"       
+                 }
+             </remarks>   
+             <response code="200">If GET request was successfully executed.</response>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.SaleController.GetSale(System.String)">
+            <summary>
+             Gets a single sale.
+            </summary>
+             <remarks>
+             Sample request:
+             
+                 GET Flowershop/Sale
+                 {   
+                   "Id": "5fc8d4bd026533d540f873aa",    
+                   "Store_id": 1,
+                   "Bouquet_id": 1,
+                   "Amount": 10,
+                   "FirstName": "John",
+                   "LastName": "Doe" 
+                 }
+             </remarks>  
+             <param name="Id">The unique identifier of the sale</param> 
+             <response code="200">If GET request was successfully executed.</response>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.SaleController.CreateSale(Architecture_3IMD.Models.Web.CreateSaleDto)">
+            <summary>
+             Creates a new sale.
+            </summary>
+            <remarks>
+             Sample request:
+            
+                 POST Flowershop/Sale
+                 {        
+                   "Store_id": 1,
+                   "Bouquet_id": 1,
+                   "Amount": 10,
+                   "FirstName": "John",
+                   "LastName": "Doe"         
+                 }
+             </remarks>
+             <response code="201">If new sale was successfully created.</response>
+             <response code="400">If one or more required fields are null.</response>   
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.StoreController.getAllStores">
+            <summary>
+            Gets a list of all the stores.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                GET Flowershop/Store
+                {    
+                  "Id": 1,    
+                  "Name": "Fleurtop",
+                  "Address": "Steestraat 15",
+                  "Region": "Tremelo"        
+                }
+            </remarks>
+            <response code="200">If GET request was successfully executed.</response>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.StoreController.getOneStore(System.Int32)">
+            <summary>
+            Gets a single store.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                GET Flowershop/Store
+                {   
+                  "Id": 1,
+                  "Name": "Fleurtop",
+                  "Address": "Steestraat 15",
+                  "Region": "Tremelo"          
+                }
+            </remarks> 
+            <param name="Id">The unique identifier of the store</param>
+            <response code="200">If GET request was successfully executed.</response>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.StoreController.createStore(Architecture_3IMD.Models.Web.StoreUpsertInput)">
+            <summary>
+            Creates a new store.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST Flowershop/Store
+                {        
+                  "Name": "Fleurtop",
+                  "Address": "Steestraat 15",
+                  "Region": "Tremelo"        
+                }
+            </remarks>
+            <response code="201">If new store was successfully created.</response>
+            <response code="400">If one or more required fields are null.</response>   
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetMunicipalityAsync(System.Int32,System.String)">
+            <summary>Vraag een gemeente op.</summary>
+            <param name="objectId">Identificator van de gemeente.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de gemeente gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetMunicipalityAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een gemeente op.</summary>
+            <param name="objectId">Identificator van de gemeente.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de gemeente gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListMunicipalitiesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met gemeenten op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gemeenten gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListMunicipalitiesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met gemeenten op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gemeenten gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetPostalCodeAsync(System.String,System.String)">
+            <summary>Vraag postinfo voor een postcode op.</summary>
+            <param name="objectId">Identificator van de postinfo.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de postinfo voor een postcode gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetPostalCodeAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag postinfo voor een postcode op.</summary>
+            <param name="objectId">Identificator van de postinfo.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de postinfo voor een postcode gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListPostalCodesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met postinfo over postcodes op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de postcodes (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met postinfo over postcodes gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListPostalCodesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met postinfo over postcodes op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de postcodes (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met postinfo over postcodes gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetStreetNameAsync(System.Int32,System.String)">
+            <summary>Vraag een straatnaam op.</summary>
+            <param name="objectId">Identificator van de straatnaam.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de straatnaam gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetStreetNameAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een straatnaam op.</summary>
+            <param name="objectId">Identificator van de straatnaam.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de straatnaam gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListStreetNamesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met straatnamen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de straatnamen (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met straatnamen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListStreetNamesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met straatnamen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de straatnamen (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met straatnamen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.AddressMatchAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>Voer een adres match vraag uit en krijg de adressen die gematcht worden.</summary>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de adressen.</param>
+            <param name="niscode">Filter op de NisCode van de gemeente.</param>
+            <param name="postcode">Filter op de postcode van het adres.</param>
+            <param name="kadStraatcode">Filter op de straatcode van het kadaster.</param>
+            <param name="rrStraatcode">Filter op de straatcode van het rijksregister.</param>
+            <param name="straatnaam">Filter op de straatnaam van het adres.</param>
+            <param name="huisnummer">Filter op het huisnummer van het adres.</param>
+            <param name="index">Filter op het huisnummer gekend in het rijksregister.</param>
+            <param name="busnummer">Filter op het busnummer van het adres.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.AddressMatchAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Voer een adres match vraag uit en krijg de adressen die gematcht worden.</summary>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de adressen.</param>
+            <param name="niscode">Filter op de NisCode van de gemeente.</param>
+            <param name="postcode">Filter op de postcode van het adres.</param>
+            <param name="kadStraatcode">Filter op de straatcode van het kadaster.</param>
+            <param name="rrStraatcode">Filter op de straatcode van het rijksregister.</param>
+            <param name="straatnaam">Filter op de straatnaam van het adres.</param>
+            <param name="huisnummer">Filter op het huisnummer van het adres.</param>
+            <param name="index">Filter op het huisnummer gekend in het rijksregister.</param>
+            <param name="busnummer">Filter op het busnummer van het adres.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetAddressAsync(System.Int32,System.String)">
+            <summary>Vraag een adres op.</summary>
+            <param name="objectId">Objectidentificator van het adres.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het adres gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetAddressAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een adres op.</summary>
+            <param name="objectId">Objectidentificator van het adres.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het adres gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListAddressesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.String)">
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de adressen (exact).</param>
+            <param name="postcode">Filter op de postcode van het adres (exact).</param>
+            <param name="straatnaam">Filter op de straatnaam van het adres (exact).</param>
+            <param name="homoniemToevoeging">Filter op de homoniem toevoeging van het adres (exact).</param>
+            <param name="huisnummer">Filter op het huisnummer van het adres (exact).</param>
+            <param name="busnummer">Filter op het busnummer van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListAddressesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de adressen (exact).</param>
+            <param name="postcode">Filter op de postcode van het adres (exact).</param>
+            <param name="straatnaam">Filter op de straatnaam van het adres (exact).</param>
+            <param name="homoniemToevoeging">Filter op de homoniem toevoeging van het adres (exact).</param>
+            <param name="huisnummer">Filter op het huisnummer van het adres (exact).</param>
+            <param name="busnummer">Filter op het busnummer van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetBuildingAsync(System.Int32,System.String)">
+            <summary>Vraag een gebouw op.</summary>
+            <param name="objectId">Identificator van het gebouw.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het gebouw gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetBuildingAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een gebouw op.</summary>
+            <param name="objectId">Identificator van het gebouw.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het gebouw gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetBuildingReferencesAsync(System.Int32,System.String)">
+            <summary>Vraag de referenties van een gebouw op.</summary>
+            <param name="objectId">Identificator van het gebouw.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>De referenties van het gebouw.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetBuildingReferencesAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag de referenties van een gebouw op.</summary>
+            <param name="objectId">Identificator van het gebouw.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>De referenties van het gebouw.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListBuildingsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met gebouwen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListBuildingsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met gebouwen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetBuildingUnitAsync(System.Int32,System.String)">
+            <summary>Vraag een gebouweenheid op.</summary>
+            <param name="objectId">Identificator van de gebouweenheid.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de gebouweenheid gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetBuildingUnitAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een gebouweenheid op.</summary>
+            <param name="objectId">Identificator van de gebouweenheid.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de gebouweenheid gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListBuildingUnitsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met gebouweenheden op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="adresObjectId">Optionele objectidentificator van het gekoppelde adres.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouweenheden gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListBuildingUnitsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met gebouweenheden op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="adresObjectId">Optionele objectidentificator van het gekoppelde adres.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouweenheden gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetParcelAsync(System.String,System.String)">
+            <summary>Vraag een perceel op.</summary>
+            <param name="objectId">Objectidentificator van het perceel (CaPaKey waarbij forward slash `/` vervangen werd door koppelteken `-`).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het perceel gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetParcelAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een perceel op.</summary>
+            <param name="objectId">Objectidentificator van het perceel (CaPaKey waarbij forward slash `/` vervangen werd door koppelteken `-`).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het perceel gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListParcelsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met percelen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met percelen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListParcelsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met percelen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met percelen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetAddressesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op adressen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetAddressesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op adressen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetBuildingsFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op gebouwen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetBuildingsFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op gebouwen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetMunicipalitiesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op gemeenten op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gemeenten gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetMunicipalitiesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op gemeenten op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gemeenten gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetParcelsFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op percelen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met percelen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetParcelsFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op percelen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met percelen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetPostalCodesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op postinfo op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met postinfo gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetPostalCodesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op postinfo op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met postinfo gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetStreetNamesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op straatnamen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met straatnamen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetStreetNamesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op straatnamen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met straatnamen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListCrabHouseNumbersAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="objectId">Filter op de CRAB-HuisnummerId van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListCrabHouseNumbersAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="objectId">Filter op de CRAB-HuisnummerId van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListCrabSubaddressesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="objectId">Filter op de CRAB-SubadresId van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListCrabSubaddressesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="objectId">Filter op de CRAB-SubadresId van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListCrabBuildingsAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met CRAB-gebouwen op die voldoen aan de filterparameters.</summary>
+            <param name="terreinObjectId">Filter op de CRAB-TerreinObjectId van het gebouw (exact).</param>
+            <param name="identificatorTerreinObject">Filter op het CRAB-IdentificatorTerreinObject van het gebouw (exact).&lt;br /&gt;
+            (= OIDN van de corresponderende GRB-gebouwgeometrie)&lt;br /&gt;
+            (= enige identificator waarmee in Lara op gebouw kan gezocht worden)</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met CRAB-gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.ListCrabBuildingsAsync(System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met CRAB-gebouwen op die voldoen aan de filterparameters.</summary>
+            <param name="terreinObjectId">Filter op de CRAB-TerreinObjectId van het gebouw (exact).</param>
+            <param name="identificatorTerreinObject">Filter op het CRAB-IdentificatorTerreinObject van het gebouw (exact).&lt;br /&gt;
+            (= OIDN van de corresponderende GRB-gebouwgeometrie)&lt;br /&gt;
+            (= enige identificator waarmee in Lara op gebouw kan gezocht worden)</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met CRAB-gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetMunicipalityAsync(System.Int32,System.String)">
+            <summary>Vraag een gemeente op.</summary>
+            <param name="objectId">Identificator van de gemeente.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de gemeente gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetMunicipalityAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een gemeente op.</summary>
+            <param name="objectId">Identificator van de gemeente.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de gemeente gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListMunicipalitiesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met gemeenten op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gemeenten gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListMunicipalitiesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met gemeenten op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gemeenten gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetPostalCodeAsync(System.String,System.String)">
+            <summary>Vraag postinfo voor een postcode op.</summary>
+            <param name="objectId">Identificator van de postinfo.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de postinfo voor een postcode gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetPostalCodeAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag postinfo voor een postcode op.</summary>
+            <param name="objectId">Identificator van de postinfo.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de postinfo voor een postcode gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListPostalCodesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met postinfo over postcodes op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de postcodes (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met postinfo over postcodes gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListPostalCodesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met postinfo over postcodes op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de postcodes (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met postinfo over postcodes gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetStreetNameAsync(System.Int32,System.String)">
+            <summary>Vraag een straatnaam op.</summary>
+            <param name="objectId">Identificator van de straatnaam.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de straatnaam gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetStreetNameAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een straatnaam op.</summary>
+            <param name="objectId">Identificator van de straatnaam.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de straatnaam gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListStreetNamesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met straatnamen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de straatnamen (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met straatnamen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListStreetNamesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met straatnamen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de straatnamen (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met straatnamen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.AddressMatchAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>Voer een adres match vraag uit en krijg de adressen die gematcht worden.</summary>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de adressen.</param>
+            <param name="niscode">Filter op de NisCode van de gemeente.</param>
+            <param name="postcode">Filter op de postcode van het adres.</param>
+            <param name="kadStraatcode">Filter op de straatcode van het kadaster.</param>
+            <param name="rrStraatcode">Filter op de straatcode van het rijksregister.</param>
+            <param name="straatnaam">Filter op de straatnaam van het adres.</param>
+            <param name="huisnummer">Filter op het huisnummer van het adres.</param>
+            <param name="index">Filter op het huisnummer gekend in het rijksregister.</param>
+            <param name="busnummer">Filter op het busnummer van het adres.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.AddressMatchAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Voer een adres match vraag uit en krijg de adressen die gematcht worden.</summary>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de adressen.</param>
+            <param name="niscode">Filter op de NisCode van de gemeente.</param>
+            <param name="postcode">Filter op de postcode van het adres.</param>
+            <param name="kadStraatcode">Filter op de straatcode van het kadaster.</param>
+            <param name="rrStraatcode">Filter op de straatcode van het rijksregister.</param>
+            <param name="straatnaam">Filter op de straatnaam van het adres.</param>
+            <param name="huisnummer">Filter op het huisnummer van het adres.</param>
+            <param name="index">Filter op het huisnummer gekend in het rijksregister.</param>
+            <param name="busnummer">Filter op het busnummer van het adres.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetAddressAsync(System.Int32,System.String)">
+            <summary>Vraag een adres op.</summary>
+            <param name="objectId">Objectidentificator van het adres.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het adres gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetAddressAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een adres op.</summary>
+            <param name="objectId">Objectidentificator van het adres.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het adres gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListAddressesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.String)">
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de adressen (exact).</param>
+            <param name="postcode">Filter op de postcode van het adres (exact).</param>
+            <param name="straatnaam">Filter op de straatnaam van het adres (exact).</param>
+            <param name="homoniemToevoeging">Filter op de homoniem toevoeging van het adres (exact).</param>
+            <param name="huisnummer">Filter op het huisnummer van het adres (exact).</param>
+            <param name="busnummer">Filter op het busnummer van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListAddressesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="gemeentenaam">De gerelateerde gemeentenaam van de adressen (exact).</param>
+            <param name="postcode">Filter op de postcode van het adres (exact).</param>
+            <param name="straatnaam">Filter op de straatnaam van het adres (exact).</param>
+            <param name="homoniemToevoeging">Filter op de homoniem toevoeging van het adres (exact).</param>
+            <param name="huisnummer">Filter op het huisnummer van het adres (exact).</param>
+            <param name="busnummer">Filter op het busnummer van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetBuildingAsync(System.Int32,System.String)">
+            <summary>Vraag een gebouw op.</summary>
+            <param name="objectId">Identificator van het gebouw.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het gebouw gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetBuildingAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een gebouw op.</summary>
+            <param name="objectId">Identificator van het gebouw.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het gebouw gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetBuildingReferencesAsync(System.Int32,System.String)">
+            <summary>Vraag de referenties van een gebouw op.</summary>
+            <param name="objectId">Identificator van het gebouw.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>De referenties van het gebouw.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetBuildingReferencesAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag de referenties van een gebouw op.</summary>
+            <param name="objectId">Identificator van het gebouw.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>De referenties van het gebouw.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListBuildingsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met gebouwen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListBuildingsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met gebouwen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetBuildingUnitAsync(System.Int32,System.String)">
+            <summary>Vraag een gebouweenheid op.</summary>
+            <param name="objectId">Identificator van de gebouweenheid.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de gebouweenheid gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetBuildingUnitAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een gebouweenheid op.</summary>
+            <param name="objectId">Identificator van de gebouweenheid.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de gebouweenheid gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListBuildingUnitsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met gebouweenheden op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="adresObjectId">Optionele objectidentificator van het gekoppelde adres.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouweenheden gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListBuildingUnitsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met gebouweenheden op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="adresObjectId">Optionele objectidentificator van het gekoppelde adres.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouweenheden gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetParcelAsync(System.String,System.String)">
+            <summary>Vraag een perceel op.</summary>
+            <param name="objectId">Objectidentificator van het perceel (CaPaKey waarbij forward slash `/` vervangen werd door koppelteken `-`).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het perceel gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetParcelAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een perceel op.</summary>
+            <param name="objectId">Objectidentificator van het perceel (CaPaKey waarbij forward slash `/` vervangen werd door koppelteken `-`).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als het perceel gevonden is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListParcelsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met percelen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met percelen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListParcelsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met percelen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met percelen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetAddressesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op adressen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetAddressesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op adressen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetBuildingsFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op gebouwen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetBuildingsFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op gebouwen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetMunicipalitiesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op gemeenten op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gemeenten gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetMunicipalitiesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op gemeenten op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met gemeenten gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetParcelsFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op percelen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met percelen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetParcelsFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op percelen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met percelen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetPostalCodesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op postinfo op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met postinfo gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetPostalCodesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op postinfo op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met postinfo gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetStreetNamesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met wijzigingen op straatnamen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met straatnamen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.GetStreetNamesFeedAsync(System.Nullable{System.Int64},System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met wijzigingen op straatnamen op in het Atom formaat.</summary>
+            <param name="from">Eventidentificator (volgnummer) vanaf waar de feed moet gestart of hernomen worden.</param>
+            <param name="limit">Maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="embed">Keuze welke info in het &amp;lt;Content&amp;gt;-gedeelte van de output moet zitten. ("event", "object", "event/object")</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met straatnamen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListCrabHouseNumbersAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="objectId">Filter op de CRAB-HuisnummerId van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListCrabHouseNumbersAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="objectId">Filter op de CRAB-HuisnummerId van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListCrabSubaddressesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="objectId">Filter op de CRAB-SubadresId van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListCrabSubaddressesAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met adressen op.</summary>
+            <param name="offset">Optionele nulgebaseerde index van de eerste instantie die teruggegeven wordt.</param>
+            <param name="limit">Optioneel maximaal aantal instanties dat teruggegeven wordt.</param>
+            <param name="objectId">Filter op de CRAB-SubadresId van het adres (exact).</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met adressen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListCrabBuildingsAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>Vraag een lijst met CRAB-gebouwen op die voldoen aan de filterparameters.</summary>
+            <param name="terreinObjectId">Filter op de CRAB-TerreinObjectId van het gebouw (exact).</param>
+            <param name="identificatorTerreinObject">Filter op het CRAB-IdentificatorTerreinObject van het gebouw (exact).&lt;br /&gt;
+            (= OIDN van de corresponderende GRB-gebouwgeometrie)&lt;br /&gt;
+            (= enige identificator waarmee in Lara op gebouw kan gezocht worden)</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met CRAB-gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:BasisRegisters.Vlaanderen.BasisRegisterService.ListCrabBuildingsAsync(System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Vraag een lijst met CRAB-gebouwen op die voldoen aan de filterparameters.</summary>
+            <param name="terreinObjectId">Filter op de CRAB-TerreinObjectId van het gebouw (exact).</param>
+            <param name="identificatorTerreinObject">Filter op het CRAB-IdentificatorTerreinObject van het gebouw (exact).&lt;br /&gt;
+            (= OIDN van de corresponderende GRB-gebouwgeometrie)&lt;br /&gt;
+            (= enige identificator waarmee in Lara op gebouw kan gezocht worden)</param>
+            <param name="if_None_Match">Optionele If-None-Match header met ETag van een vorig verzoek.</param>
+            <returns>Als de opvraging van een lijst met CRAB-gebouwen gelukt is.</returns>
+            <exception cref="T:BasisRegisters.Vlaanderen.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GemeenteIdentificator">
+            <summary>Bevat informatie waarmee een gemeente kan geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GemeenteIdentificator.Id">
+            <summary>De unieke en persistente identificator van het object (volgt de Vlaamse URI-standaard).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GemeenteIdentificator.Naamruimte">
+            <summary>De naamruimte waarbinnen objecten van een bepaald objecttype geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GemeenteIdentificator.ObjectId">
+            <summary>De objectidentificator (enkel uniek binnen naamruimte).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GemeenteIdentificator.VersieId">
+            <summary>De versie-identificator (timestamp volgens RFC 3339) (notatie: lokale tijd + verschil t.o.v. UTC).</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GeografischeNaam">
+            <summary>De geografische naam.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GeografischeNaam.Spelling">
+            <summary>De spelling van de geografische naam in de gespecifieerde taal.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.MunicipalityResponse.OfficieleTalen">
+            <summary>De officiële talen van de gemeente.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.MunicipalityResponse.FaciliteitenTalen">
+            <summary>De faciliteiten talen van de gemeente.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.MunicipalityResponse.Gemeentenamen">
+            <summary>De officiële namen van de gemeente.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.ProblemDetails">
+            <summary>Implementation of Problem Details for HTTP APIs https://tools.ietf.org/html/rfc7807</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ProblemDetails.Type">
+            <summary>URI referentie die het probleem type bepaalt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ProblemDetails.Title">
+            <summary>Korte omschrijving van het probleem.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ProblemDetails.Detail">
+            <summary>Specifieke details voor dit probleem.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ProblemDetails.Status">
+            <summary>HTTP status code komende van de server voor dit probleem.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ProblemDetails.Instance">
+            <summary>URI naar de specifieke instantie van dit probleem.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.Gemeentenaam">
+            <summary>De naam van de gemeente in het Nederlands.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.MunicipalityListItemResponse.Detail">
+            <summary>De URL die naar de details van de meest recente versie van een enkele gemeente leidt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.MunicipalityListResponse.Gemeenten">
+            <summary>De verzameling van gemeentes.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.MunicipalityListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.PostinfoIdentificator">
+            <summary>Bevat informatie waarmee de postinfo kan geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostinfoIdentificator.Id">
+            <summary>De unieke en persistente identificator van het object (volgt de Vlaamse URI-standaard).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostinfoIdentificator.Naamruimte">
+            <summary>De naamruimte waarbinnen objecten van een bepaald objecttype geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostinfoIdentificator.ObjectId">
+            <summary>De objectidentificator (enkel uniek binnen naamruimte).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostinfoIdentificator.VersieId">
+            <summary>De versie-identificator (timestamp volgens RFC 3339) (notatie: lokale tijd + verschil t.o.v. UTC).</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.PostInfoStatus">
+            <summary>De status van het PostInfo object.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostalInformationResponse.Postnamen">
+            <summary>De namen van het gebied dat de postcode beslaat, in meerdere talen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostalInformationListItemResponse.Detail">
+            <summary>De URL die naar de details van de meest recente versie van de postcode leidt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostalInformationListItemResponse.Postnamen">
+            <summary>De namen van de gebieden die de postcode beslaat, in het Nederlands.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostalInformationListResponse.PostInfoObjecten">
+            <summary>De verzameling van postcodes.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PostalInformationListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.StraatnaamIdentificator">
+            <summary>Bevat informatie waarmee de straatnaam kan geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StraatnaamIdentificator.Id">
+            <summary>De unieke en persistente identificator van het object (volgt de Vlaamse URI-standaard).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StraatnaamIdentificator.Naamruimte">
+            <summary>De naamruimte waarbinnen objecten van een bepaald objecttype geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StraatnaamIdentificator.ObjectId">
+            <summary>De objectidentificator (enkel uniek binnen naamruimte).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StraatnaamIdentificator.VersieId">
+            <summary>De versie-identificator (timestamp volgens RFC 3339) (notatie: lokale tijd + verschil t.o.v. UTC).</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.StraatnaamDetailGemeente">
+            <summary>De gemeente aan dewelke de straatnaam is toegewezen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StraatnaamDetailGemeente.ObjectId">
+            <summary>De identifier van de gekoppelde gemeente.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StraatnaamDetailGemeente.Detail">
+            <summary>De URL die de details van de meest recente versie van de gekoppelde gemeente weergeeft.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StreetNameResponse.Straatnamen">
+            <summary>De straatnaam in verschillende talen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StreetNameResponse.HomoniemToevoegingen">
+            <summary>De homoniem-toevoegingen aan de straatnaam in verschillende talen.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.Straatnaam">
+            <summary>De straatnaam in het Nederlands.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.HomoniemToevoeging">
+            <summary>De homoniemtoevoeging in het Nederlands.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StreetNameListItemResponse.Detail">
+            <summary>De URL die naar de details van de meeste recente versie van een enkele straatnaam leidt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StreetNameListResponse.Straatnamen">
+            <summary>De verzameling van straatnamen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.StreetNameListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.AdresIdentificator">
+            <summary>Bevat informatie waarmee het adres kan geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresIdentificator.Id">
+            <summary>De unieke en persistente identificator van het object (volgt de Vlaamse URI-standaard).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresIdentificator.Naamruimte">
+            <summary>De naamruimte waarbinnen objecten van een bepaald objecttype geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresIdentificator.ObjectId">
+            <summary>De objectidentificator (enkel uniek binnen naamruimte).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresIdentificator.VersieId">
+            <summary>De versie-identificator (timestamp volgens RFC 3339) (notatie: lokale tijd + verschil t.o.v. UTC).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItemGemeente.ObjectId">
+            <summary>De identificator van de gerelateerde gemeente.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItemGemeente.Detail">
+            <summary>URL waarop de details van de laatste versie van de gerelateerde gemeente gevonden kunnen worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItemPostinfo.ObjectId">
+            <summary>De identificator van de gerelateerde postinfo.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItemPostinfo.Detail">
+            <summary>URL waarop de details van de laatste versie van de gerelateerde postinfo gevonden kunnen worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItemStraatnaam.ObjectId">
+            <summary>De identificator van de gerelateerde straatnaam.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItemStraatnaam.Detail">
+            <summary>URL waarop de details van de laatste versie van de gerelateerde straatnaam gevonden kunnen worden.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.VolledigAdres">
+            <summary>De voorstelling van een adres in het Nederlands.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GeoJSONPoint">
+            <summary>Een GeoJSON punt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GeoJSONPoint.Coordinates">
+            <summary>Coördinaten volgens Lambert-72 (EPSG:31370).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GeoJSONPoint.Type">
+            <summary>GeoJSON-geometrietype.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.Point">
+            <summary>Een GML3 punt of een GeoJSON punt, afhankelijk van het Content-Type.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.PositieSpecificatie">
+            <summary>De specificatie van het object, voorgesteld door de positie.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.PositieGeometrieMethode">
+            <summary>De Geometrie methode van de positie.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.AdresStatus">
+            <summary>De status van een adres.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresseerbaarObject.ObjectId">
+            <summary>De identificator van het gerelateerde object.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresseerbaarObject.Detail">
+            <summary>URL waarop de details van de laatste versie van het gerelateerde object gevonden kunnen worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItem.Detail">
+            <summary>URL waarop de details van de laatste versie van het adres gevonden kunnen worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItem.Huisnummer">
+            <summary>Het huisnummer.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItem.Busnummer">
+            <summary>Het nummer van de bus.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItem.OfficieelToegekend">
+            <summary>False wanneer het bestaan van het adres niet geweten is ten tijde van administratieve procedures, maar pas na observatie op het terrein.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItem.AdresseerbareObjecten">
+            <summary>Objecten die gekoppeld zijn aan het adres.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresMatchItem.Score">
+            <summary>De graad van gelijkenis tussen het gevonden adres en de invoer.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.ValidationMessage">
+            <summary>contains a warning message in dutch and english</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ValidationMessage.Code">
+            <summary>A code</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ValidationMessage.Message">
+            <summary>A descriptive message. Preferably in Dutch and English</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressMatchCollection.AdresMatches">
+            <summary>De eerste 10 adres matches.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressMatchCollection.Warnings">
+            <summary>Bevat waarschuwingen met betrekking tot conflicterende input.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.AdresDetailGemeente">
+            <summary>De gemeente die deel uitmaakt van het adres.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresDetailGemeente.ObjectId">
+            <summary>De identifier van de gekoppelde gemeente.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresDetailGemeente.Detail">
+            <summary>De URL die de details van de meest recente versie van de gekoppelde gemeente weergeeft.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.AdresDetailPostinfo">
+            <summary>Een PostInfo object dat deel uitmaakt van het adres.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresDetailPostinfo.ObjectId">
+            <summary>De identifier van het gekoppelde PostInfo object.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresDetailPostinfo.Detail">
+            <summary>De URL die de details van de meest recente versie van het gekoppelde PostInfo object weergeeft.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.AdresDetailStraatnaam">
+            <summary>Een straatnaam die deel uitmaakt van het adres.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresDetailStraatnaam.ObjectId">
+            <summary>De identifier van de gekoppelde straatnaam.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AdresDetailStraatnaam.Detail">
+            <summary>De URL die de details van de meest recente versie van de gekoppelde straatnaam weergeeft.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressResponse.Huisnummer">
+            <summary>Het huisnummer.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressResponse.Busnummer">
+            <summary>Het nummer van de bus.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressResponse.OfficieelToegekend">
+            <summary>False wanneer het bestaan van het adres niet geweten is ten tijde van administratieve procedures, maar pas na observatie op het terrein.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressListItemResponse.Detail">
+            <summary>De URL die naar de details van de meeste recente versie van een enkel adres leidt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressListItemResponse.Huisnummer">
+            <summary>Het huisnummer.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressListItemResponse.Busnummer">
+            <summary>Het busnummer.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressListResponse.Adressen">
+            <summary>De verzameling van adressen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.AddressListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GebouwIdentificator">
+            <summary>Bevat informatie waarmee het gebouw kan geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwIdentificator.Id">
+            <summary>De unieke en persistente identificator van het object (volgt de Vlaamse URI-standaard).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwIdentificator.Naamruimte">
+            <summary>De naamruimte waarbinnen objecten van een bepaald objecttype geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwIdentificator.ObjectId">
+            <summary>De objectidentificator (enkel uniek binnen naamruimte).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwIdentificator.VersieId">
+            <summary>De versie-identificator (timestamp volgens RFC 3339) (notatie: lokale tijd + verschil t.o.v. UTC).</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GeoJSONPolygon">
+            <summary>Een GeoJSON polygoon.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GeoJSONPolygon.Coordinates">
+            <summary>Coördinaten volgens Lambert-72 (EPSG:31370).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GeoJSONPolygon.Type">
+            <summary>GeoJSON-geometrietype.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.Polygon">
+            <summary>Een GML3 punt of een GeoJSON punt, afhankelijk van het Content-Type.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GeometrieMethode">
+            <summary>De methode waarop de geometrie is verworven.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GebouwStatus">
+            <summary>De status van een gebouw.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwDetailGebouweenheid.ObjectId">
+            <summary>De identifier van de gekoppelde gebouweenheid.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwDetailGebouweenheid.Detail">
+            <summary>De URL die de details van de meest recente versie van de gekoppelde gebouweenheid weergeeft.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwDetailPerceel.ObjectId">
+            <summary>De identifier van het gekoppelde perceel.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwDetailPerceel.Detail">
+            <summary>De URL die de details van de meest recente versie van het gekoppelde perceel weergeeft.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingResponse.Gebouweenheden">
+            <summary>a collection of building units that reside within the building</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingResponse.Percelen">
+            <summary>a collection of parcels that lie underneath the building</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.CrabReferences">
+            <summary>De referenties van CRAB.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabReferences.TerreinObjectId">
+            <summary>De CRAB-TerreinObjectId.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabReferences.IdentificatorTerreinObject">
+            <summary>Het CRAB-IdentificatorTerreinObject. &lt;br /&gt;
+            (= OIDN van de corresponderende GRB-gebouwgeometrie) &lt;br /&gt;
+            (= enige identificator waarmee in Lara op gebouw kan gezocht worden)</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwCollectieItem.Detail">
+            <summary>De URL die naar de details van de meeste recente versie van een enkele gebouw leidt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingListResponse.Gebouwen">
+            <summary>Collectie van gebouwen</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GebouweenheidIdentificator">
+            <summary>Bevat informatie waarmee de gebouweenheid kan geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidIdentificator.Id">
+            <summary>De unieke en persistente identificator van het object (volgt de Vlaamse URI-standaard).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidIdentificator.Naamruimte">
+            <summary>De naamruimte waarbinnen objecten van een bepaald objecttype geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidIdentificator.ObjectId">
+            <summary>De objectidentificator (enkel uniek binnen naamruimte).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidIdentificator.VersieId">
+            <summary>De versie-identificator (timestamp volgens RFC 3339) (notatie: lokale tijd + verschil t.o.v. UTC).</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GebouweenheidStatus">
+            <summary>De status van een gebouweenheid.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GebouweenheidFunctie">
+            <summary>De functie van de gebouweenheid in realiteit.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GebouweenheidDetailGebouw">
+            <summary>Het gebouw waartoe de gebouweenheid behoort.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidDetailGebouw.ObjectId">
+            <summary>De identifier van het gekoppelde gebouw.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidDetailGebouw.Detail">
+            <summary>De URL die de details van de meest recente versie van het gekoppelde gebouw weergeeft.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GebouweenheidDetailAdres">
+            <summary>Het adres van de gebouweenheid.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidDetailAdres.ObjectId">
+            <summary>De identifier van het gekoppelde adres.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidDetailAdres.Detail">
+            <summary>De URL die de details van de meest recente versie van het gekoppelde adres weergeeft.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingUnitResponse.Adressen">
+            <summary>De aan de gebouweenheid gelinkte adressen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouweenheidCollectieItem.Detail">
+            <summary>De URL die naar de details van de meeste recente versie van een enkele gebouweenheid leidt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingUnitListResponse.Gebouweenheden">
+            <summary>Collectie van gebouweenheden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingUnitListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.PerceelIdentificator">
+            <summary>Bevat informatie waarmee het perceel kan geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PerceelIdentificator.Id">
+            <summary>De unieke en persistente identificator van het object (volgt de Vlaamse URI-standaard).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PerceelIdentificator.Naamruimte">
+            <summary>De naamruimte waarbinnen objecten van een bepaald objecttype geïdentificeerd worden.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PerceelIdentificator.ObjectId">
+            <summary>De objectidentificator (enkel uniek binnen naamruimte).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PerceelIdentificator.VersieId">
+            <summary>De versie-identificator (timestamp volgens RFC 3339) (notatie: lokale tijd + verschil t.o.v. UTC).</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.PerceelStatus">
+            <summary>De status van een perceel.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PerceelDetailAdres.ObjectId">
+            <summary>De identifier van het gekoppelde adres.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.PerceelDetailAdres.Detail">
+            <summary>De URL die de details van de meest recente versie van het gekoppelde adres weergeeft.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ParcelResponse.Adressen">
+            <summary>De aan het perceel gelinkte adressen</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ParcelListItemResponse.Detail">
+            <summary>De URL die naar de details van de meest recente versie van een enkel perceel leidt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ParcelListResponse.Percelen">
+            <summary>De verzameling van percelen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.ParcelListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabAddressListItemAddress.IsVolledig">
+            <summary>True als het adres volledig is (heeft status en positie).</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabAddressListItemAddress.Detail">
+            <summary>De URL die naar de details van de meeste recente versie van een enkele straatnaam leidt.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabAddressListItemAddress.Huisnummer">
+            <summary>Het huisnummer.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabAddressListItemAddress.Busnummer">
+            <summary>Het nummer van de bus.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabHouseNumberAddressListItem.ObjectId">
+            <summary>De CRAB-HuisnummerId.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabHouseNumberAddressListResponse.CrabHuisnummers">
+            <summary>De verzameling van adressen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabHouseNumberAddressListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabSubAddressListItem.ObjectId">
+            <summary>De CRAB-SubadresId.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabSubAddressListResponse.CrabSubadressen">
+            <summary>De verzameling van adressen.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.CrabSubAddressListResponse.Volgende">
+            <summary>De URL voor het ophalen van de volgende verzameling.</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.GebouwCrabIdentificator">
+            <summary>De identificator van het gebouw.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.GebouwCrabIdentificator.ObjectId">
+            <summary>De objectidentificator (enkel uniek binnen naamruimte).</summary>
+        </member>
+        <member name="T:BasisRegisters.Vlaanderen.CrabGrarGebouw">
+            <summary>Het gebouw in het gebouwenregister.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingCrabMappingItem.TerreinObjectId">
+            <summary>De TerreinObjectId gekend in CRAB.</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingCrabMappingItem.IdentificatorTerreinObject">
+            <summary>Het CRAB-IdentificatorTerreinObject.&lt;br /&gt;
+            (= OIDN van de corresponderende GRB-gebouwgeometrie) &lt;br /&gt;
+            (= enige identificator waarmee in Lara op gebouw kan gezocht worden)</summary>
+        </member>
+        <member name="P:BasisRegisters.Vlaanderen.BuildingCrabMappingResponse.CrabGebouwen">
+            <summary>Collectie van CRAB-gebouwen</summary>
+        </member>
+    </members>
+</doc>

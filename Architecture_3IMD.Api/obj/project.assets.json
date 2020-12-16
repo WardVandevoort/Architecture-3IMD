@@ -290,7 +290,7 @@
           "lib/netstandard2.0/Microsoft.Extensions.Http.dll": {}
         }
       },
-      "Microsoft.Extensions.Http.Polly/5.0.0": {
+      "Microsoft.Extensions.Http.Polly/5.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "5.0.0",
@@ -2863,17 +2863,17 @@
         "version.txt"
       ]
     },
-    "Microsoft.Extensions.Http.Polly/5.0.0": {
-      "sha512": "HSevU/I7eDDi9IAoAosrV6ekHwGPwmGchcD9kcjYjzXN3RLZuazDM2MGu3HxU30mlGg0JCD0x0YCwaZEtmdiSQ==",
+    "Microsoft.Extensions.Http.Polly/5.0.1": {
+      "sha512": "Tzf+x8HVDhri9dkIGCGOP5RVjgXnTZuBcwZHr0sW6KAtVGPDU0xEDXPDpoW5vwq/K12dMI75vuapUtMw0d/pIw==",
       "type": "package",
-      "path": "microsoft.extensions.http.polly/5.0.0",
+      "path": "microsoft.extensions.http.polly/5.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.xml",
-        "microsoft.extensions.http.polly.5.0.0.nupkg.sha512",
+        "microsoft.extensions.http.polly.5.0.1.nupkg.sha512",
         "microsoft.extensions.http.polly.nuspec"
       ]
     },
@@ -9010,7 +9010,7 @@
       "Microsoft.EntityFrameworkCore.InMemory >= 3.1.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.9",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.9",
-      "Microsoft.Extensions.Http.Polly >= 5.0.0",
+      "Microsoft.Extensions.Http.Polly >= 5.0.1",
       "MongoDB.Driver >= 2.11.4",
       "NSwag.ApiDescription.Client >= 13.0.5",
       "Newtonsoft.Json >= 12.0.2",
@@ -9028,11 +9028,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
+      "projectUniqueName": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
       "projectName": "Architecture-3IMD",
-      "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
+      "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
       "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\obj\\",
+      "outputPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -9093,7 +9093,7 @@
           },
           "Microsoft.Extensions.Http.Polly": {
             "target": "Package",
-            "version": "[5.0.0, )"
+            "version": "[5.0.1, )"
           },
           "MongoDB.Driver": {
             "target": "Package",

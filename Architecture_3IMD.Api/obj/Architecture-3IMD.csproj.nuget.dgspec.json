@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj": {}
+    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj": {
+    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
         "projectName": "Architecture-3IMD",
-        "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -72,7 +72,7 @@
             },
             "Microsoft.Extensions.Http.Polly": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[5.0.1, )"
             },
             "MongoDB.Driver": {
               "target": "Package",

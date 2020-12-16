@@ -8,6 +8,7 @@ namespace Architecture_3IMD.Repositories
     public interface ISalesRepository
     {
         Task<List<Sale>> GetAllSalesAsync();
+        //Task<List<Sale>> GetOverviewAsync();
         Task InsertSaleAsync(Sale sale);
     }
 }

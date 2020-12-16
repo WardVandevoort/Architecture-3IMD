@@ -133,8 +133,11 @@ namespace Architecture_3IMD
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Flowershop API V1");
             });
 
-            static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
-            {
+           
+        } 
+
+        static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        {
             // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly
             // You can just "read" this part of the code, it does what you think it does.
             return HttpPolicyExtensions
@@ -142,7 +145,6 @@ namespace Architecture_3IMD
                 .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
                 .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2,
                     retryAttempt)));
-            }
-        } 
+        }
     }
 }

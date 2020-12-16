@@ -31,6 +31,14 @@ namespace Architecture_3IMD.Repositories
             return await findCursor.ToListAsync();
         }
 
+        /*public async Task<List<Sale>> GetOverviewAsync()
+        {
+            // you always need a filter when using mongodb
+            var collection = await Sales;
+            //var overview = await Sales.FindAsync(x => true);
+            return await collection.ToListAsync();
+        }*/
+
         public async Task InsertSaleAsync(Sale sale)
         {
             // as soon as you insert an entity you automatically get an id filled in.
