@@ -49,7 +49,6 @@ C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Api\bin\D
 C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Api\bin\Debug\net5.0\Polly.dll
 C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Api\bin\Debug\net5.0\Polly.Extensions.Http.dll
 C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Api\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
-C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Api\bin\Debug\net5.0\Pomelo.JsonObject.dll
 C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Api\bin\Debug\net5.0\SharpCompress.dll
 C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll

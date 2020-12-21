@@ -70,8 +70,9 @@ namespace Architecture_3IMD
                         //Configuration.GetConnectionString("GlobalDatabase"),
                         Db1,
                         // Replace with your server version and type.
+                        
+                        new MySqlServerVersion(new Version(10, 4, 11)),
                         mySqlOptions => mySqlOptions
-                            .ServerVersion(new Version(10, 4, 11), ServerType.MySql)
                             .CharSetBehavior(CharSetBehavior.NeverAppend)
             ));
             services.Configure<SalesDbContext>(

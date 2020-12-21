@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3InQ6XTjNyqdtycUUVq6EDuc+XnnG8chZaOIvm2U5RH1LydjfgxmqM6AQzyz2G9dmyJlfsVrQkfUKyXqaRs2Nw==",
+  "dgSpecHash": "U48zbYmreokZcv5IVjcBG98Z5cPQcCwK+6uZY6f8iWXHB7CNTdNNqUk2TW6cNhBfDCQ11Jz/Gaxrdg/hi6hxKQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
   "expectedPackageFiles": [
@@ -53,15 +53,14 @@
     "C:\\Users\\Gebruiker\\.nuget\\packages\\mongodb.driver.core\\2.11.4\\mongodb.driver.core.2.11.4.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\mongodb.libmongocrypt\\1.0.0\\mongodb.libmongocrypt.1.0.0.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\mysql\\5.5.14.1\\mysql.5.5.14.1.nupkg.sha512",
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\mysqlconnector\\0.69.9\\mysqlconnector.0.69.9.nupkg.sha512",
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\mysqlconnector\\1.1.0\\mysqlconnector.1.1.0.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\nswag.apidescription.client\\13.0.5\\nswag.apidescription.client.13.0.5.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\nswag.msbuild\\13.0.5\\nswag.msbuild.13.0.5.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\polly\\7.2.1\\polly.7.2.1.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\polly.extensions.http\\3.0.0\\polly.extensions.http.3.0.0.nupkg.sha512",
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\3.2.4\\pomelo.entityframeworkcore.mysql.3.2.4.nupkg.sha512",
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\pomelo.jsonobject\\2.2.1\\pomelo.jsonobject.2.2.1.nupkg.sha512",
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\5.0.0-alpha.2\\pomelo.entityframeworkcore.mysql.5.0.0-alpha.2.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -136,16 +135,5 @@
     "C:\\Users\\Gebruiker\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Gebruiker\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: Pomelo.EntityFrameworkCore.MySql 3.2.4 requires Microsoft.EntityFrameworkCore.Relational (>= 3.1.8 && < 5.0.0) but version Microsoft.EntityFrameworkCore.Relational 5.0.1 was resolved.",
-      "libraryId": "Microsoft.EntityFrameworkCore.Relational",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }
