@@ -75,6 +75,37 @@
              </remarks>   
              <response code="200">If GET request was successfully executed.</response>
         </member>
+        <member name="M:Architecture_3IMD.Controllers.SaleController.GetSalesOverview">
+            <summary>
+             Gets an overview of the best selling bouquets.
+            </summary>
+             <remarks>
+             Sample request:
+             
+                 GET Flowershop/Sale/Overview
+                 {   
+                   "Bouquet_id": 1,
+                   "TotalAmountSold": 100    
+                 }
+             </remarks>   
+             <response code="200">If GET request was successfully executed.</response>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.SaleController.GetBouquetByStoreOverview(System.Int32)">
+            <summary>
+             Gets an overview of the best selling bouquets for a specific store.
+            </summary>
+             <remarks>
+             Sample request:
+             
+                 GET Flowershop/Sale/OverviewBouquetByStore
+                 {   
+                   "Bouquet_id": 1,
+                   "TotalAmountSold": 10      
+                 }
+             </remarks>   
+             <param name="store_id">The unique identifier of the store</param> 
+             <response code="200">If GET request was successfully executed.</response>
+        </member>
         <member name="M:Architecture_3IMD.Controllers.SaleController.GetSale(System.String)">
             <summary>
              Gets a single sale.

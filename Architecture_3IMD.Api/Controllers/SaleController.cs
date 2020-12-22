@@ -48,6 +48,19 @@ namespace Architecture_3IMD.Controllers
         [HttpGet]
         public async Task<IActionResult> GetSales() => Ok(await GetAllSalesFromCacheAsync());
 
+        ///<summary>
+        /// Gets an overview of the best selling bouquets.
+        ///</summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     GET Flowershop/Sale/Overview
+        ///     {   
+        ///       "Bouquet_id": 1,
+        ///       "TotalAmountSold": 100    
+        ///     }
+        /// </remarks>   
+        /// <response code="200">If GET request was successfully executed.</response>
         [HttpGet("Overview")]
         public async Task<IActionResult> GetSalesOverview()
         {
@@ -63,6 +76,43 @@ namespace Architecture_3IMD.Controllers
         overview = overview.OrderByDescending(bouquetOverview => bouquetOverview.TotalAmountSold);
         return Ok(overview);
         }
+
+        ///<summary>
+        /// Gets an overview of the best selling bouquets for a specific store.
+        ///</summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     GET Flowershop/Sale/OverviewBouquetByStore
+        ///     {   
+        ///       "Bouquet_id": 1,
+        ///       "TotalAmountSold": 10      
+        ///     }
+        /// </remarks>   
+        /// <param name="store_id">The unique identifier of the store</param> 
+        /// <response code="200">If GET request was successfully executed.</response>
+        [HttpGet("OverviewBouquetByStore/{store_id}")]
+        public async Task<IActionResult> GetBouquetByStoreOverview(int store_id)
+        {
+        var sales = await GetAllSalesFromCacheAsync();
+        var lists = from sale in sales
+                    where sale.Store_id == store_id
+                    select sale;
+        var overview = from list in lists
+                       group list by list.Bouquet_id into StoreOverview
+                       select new
+                       {
+                            Bouquet_id = StoreOverview.Key,
+                            TotalAmountSold = StoreOverview.Sum(x => x.Amount),
+                       };
+                       
+        overview = overview.OrderByDescending(StoreOverview => StoreOverview.TotalAmountSold);
+        return Ok(overview);
+        }
+
+        //bouquet by store overview
+        //store overview
+        //region overview
 
         ///<summary>
         /// Gets a single sale.
