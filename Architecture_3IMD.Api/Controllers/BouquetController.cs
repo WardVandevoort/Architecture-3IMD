@@ -21,7 +21,6 @@ namespace Architecture_3IMD.Controllers
     {
 
         private readonly IBouquetsRepository _bouquetsRepository;
-
         private readonly ILogger<BouquetController> _logger;
 
         public BouquetController(IBouquetsRepository bouquetsRepository, ILogger<BouquetController> logger)

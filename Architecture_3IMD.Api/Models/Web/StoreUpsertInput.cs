@@ -16,6 +16,10 @@ namespace Architecture_3IMD.Models.Web
 
         [Required]
         [StringLength(255)]
+        public string StreetNumber { get; set; }
+
+        [Required]
+        [StringLength(255)]
         public string Region { get; set; }
     }
 }

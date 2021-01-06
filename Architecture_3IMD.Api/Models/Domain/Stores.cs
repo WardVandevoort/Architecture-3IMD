@@ -21,6 +21,9 @@ public class Store
      public string Address{get; set;}
 
      [Required]
+     public string StreetNumber{get; set;}
+
+     [Required]
      public string Region{get; set;}
 }
 

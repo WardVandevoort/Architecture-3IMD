@@ -40,13 +40,14 @@ namespace Architecture_3IMD.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Store> Insert(int Id, string Name, string Address, string Region)
+        public async Task<Store> Insert(int Id, string Name, string Address, string StreetNumber, string Region)
         {
             var store = new Store
             {
                Id = Id,
                Name = Name,
                Address = Address,
+               StreetNumber = StreetNumber,
                Region = Region
             };
             await _context.Stores.AddAsync(store);
@@ -54,7 +55,7 @@ namespace Architecture_3IMD.Repositories
             return store;
         }
 
-        public async Task<Store> Update(int Id, string Name, string Address, string Region)
+        public async Task<Store> Update(int Id, string Name, string Address, string StreetNumber, string Region)
         {
             var store = await _context.Stores.FindAsync(Id);
             if (store == null)
@@ -65,6 +66,7 @@ namespace Architecture_3IMD.Repositories
 
             store.Name = Name;
             store.Address = Address;
+            store.StreetNumber = StreetNumber;
             store.Region = Region;
             await _context.SaveChangesAsync();
             return store;

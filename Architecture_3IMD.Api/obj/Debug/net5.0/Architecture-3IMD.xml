@@ -156,7 +156,8 @@
                 {    
                   "Id": 1,    
                   "Name": "Fleurtop",
-                  "Address": "Steestraat 15",
+                  "Address": "Steestraat",
+                  "StreetNumber": "100",
                   "Region": "Tremelo"        
                 }
             </remarks>
@@ -173,7 +174,8 @@
                 {   
                   "Id": 1,
                   "Name": "Fleurtop",
-                  "Address": "Steestraat 15",
+                  "Address": "Steestraat",
+                  "StreetNumber": "100",
                   "Region": "Tremelo"          
                 }
             </remarks> 
@@ -190,7 +192,8 @@
                 POST Flowershop/Store
                 {        
                   "Name": "Fleurtop",
-                  "Address": "Steestraat 15",
+                  "Address": "Steestraat",
+                  "StreetNumber": "100",
                   "Region": "Tremelo"        
                 }
             </remarks>

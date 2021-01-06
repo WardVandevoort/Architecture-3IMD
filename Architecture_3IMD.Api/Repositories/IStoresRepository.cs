@@ -9,7 +9,7 @@ namespace Architecture_3IMD.Repositories
         Task<IEnumerable<Store>> GetAllStores();
         Task<Store> GetOneStoreById(int Id);
         Task Delete(int Id);
-        Task<Store> Insert(int Id, string Name, string Address, string Region);
-        Task<Store> Update(int Id, string Name, string Address, string Region);
+        Task<Store> Insert(int Id, string Name, string Address, string StreetNumber, string Region);
+        Task<Store> Update(int Id, string Name, string Address, string StreetNumber, string Region);
     }
 }

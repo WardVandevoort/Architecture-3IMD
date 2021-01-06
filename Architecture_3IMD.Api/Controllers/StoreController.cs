@@ -12,6 +12,7 @@ using Architecture_3IMD.Repositories;
 using System.IO;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http;
+using BasisRegisters.Vlaanderen;
 
 namespace Architecture_3IMD.Controllers
 {
@@ -21,11 +22,13 @@ namespace Architecture_3IMD.Controllers
      {          
           private readonly IStoresRepository _storesRepository;
           private readonly ILogger<StoreController> _logger;
+          private readonly IBasisRegisterService _basisRegisterService;
 
-          public StoreController(IStoresRepository storesRepository, ILogger<StoreController> logger)
+          public StoreController(IStoresRepository storesRepository, ILogger<StoreController> logger, IBasisRegisterService basisRegisterService)
           {
                _storesRepository = storesRepository;
                _logger = logger;
+               _basisRegisterService = basisRegisterService;
           }
 
           /// <summary>
@@ -38,7 +41,8 @@ namespace Architecture_3IMD.Controllers
           ///     {    
           ///       "Id": 1,    
           ///       "Name": "Fleurtop",
-          ///       "Address": "Steestraat 15",
+          ///       "Address": "Steestraat",
+          ///       "StreetNumber": "100",
           ///       "Region": "Tremelo"        
           ///     }
           /// </remarks>
@@ -64,7 +68,8 @@ namespace Architecture_3IMD.Controllers
           ///     {   
           ///       "Id": 1,
           ///       "Name": "Fleurtop",
-          ///       "Address": "Steestraat 15",
+          ///       "Address": "Steestraat",
+          ///       "StreetNumber": "100",
           ///       "Region": "Tremelo"          
           ///     }
           /// </remarks> 
@@ -88,7 +93,8 @@ namespace Architecture_3IMD.Controllers
           ///     POST Flowershop/Store
           ///     {        
           ///       "Name": "Fleurtop",
-          ///       "Address": "Steestraat 15",
+          ///       "Address": "Steestraat",
+          ///       "StreetNumber": "100",
           ///       "Region": "Tremelo"        
           ///     }
           /// </remarks>
@@ -99,11 +105,28 @@ namespace Architecture_3IMD.Controllers
           [ProducesDefaultResponseType]
           public async Task<IActionResult> createStore(StoreUpsertInput store)
           {
-               _logger.LogInformation("Creating a store", store);
+               try
+               {
+                    // Code that checks if the given address exists
+                    var addresses = await _basisRegisterService
+                    .AddressMatchAsync(store.Region, null, null, null, null, store.Address, store.StreetNumber, null, null);
+                    addresses.Warnings.ToList().ForEach(x => _logger.LogWarning($"{x.Code} {x.Message}"));
+                    if(!addresses.Warnings.Any()){
+                         // Code that creates a new store.
+                         _logger.LogInformation("Creating a store", store);
+                         var persistedStore = await _storesRepository.Insert(store.Id, store.Name, store.Address, store.StreetNumber, store.Region);
+                         return Created($"/stores/{persistedStore.Id}", persistedStore);
+                    }
+                    else{
+                         return Ok("The given address does not exist!");
+                    }
+               }
+               catch (Exception ex)
+               {
+                    _logger.LogCritical(ex, "Error");
+                    return BadRequest();
+               }
 
-               //   Code that creates a new store.
-               var persistedStore = await _storesRepository.Insert(store.Id, store.Name, store.Address, store.Region);
-               return Created($"/stores/{persistedStore.Id}", persistedStore);
           }
 
     }
