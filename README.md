@@ -21,7 +21,7 @@ We included migrations and seeders so you can easily create a database with dumm
 
 ## Usage
 
-You can use `dotnet watch run` to run the project; after you get the notification that the application started navigate to <http://localhost:5000/swagger/index.html> or <https://localhost:5001/swagger/index.html>; you will get an overview with all the API methods and a quick method to execute them.
+You can use `dotnet watch run` to run the project (make sure you do this while in the Architecture_3IMD.Api folder); after you get the notification that the application started navigate to <http://localhost:5000/swagger/index.html> or <https://localhost:5001/swagger/index.html>; you will get an overview with all the API methods and a quick method to execute them.
 
 You can use `dotnet test` to run the tests, if the project is working correctly all these tests should be passed.
 
