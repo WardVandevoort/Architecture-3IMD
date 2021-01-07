@@ -106,6 +106,37 @@
              <param name="store_id">The unique identifier of the store</param> 
              <response code="200">If GET request was successfully executed.</response>
         </member>
+        <member name="M:Architecture_3IMD.Controllers.SaleController.GetRevenueOverview">
+            <summary>
+             Gets an overview of the revenue of all the stores.
+            </summary>
+             <remarks>
+             Sample request:
+             
+                 GET Flowershop/Sale/OverviewRevenue
+                 {   
+                   "Store_id": 1,
+                   "TotalRevenue": 100    
+                 }
+             </remarks>   
+             <response code="200">If GET request was successfully executed.</response>
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.SaleController.GetRegionOverview(System.String)">
+            <summary>
+             Gets a sales overview of stores in the same region.
+            </summary>
+             <remarks>
+             Sample request:
+             
+                 GET Flowershop/Sale/RegionOverview
+                 {   
+                   "Store_id": 1,
+                   "TotalAmountSold": 100      
+                 }
+             </remarks>   
+             <param name="region">The region in which store(s) are located</param> 
+             <response code="200">If GET request was successfully executed.</response>
+        </member>
         <member name="M:Architecture_3IMD.Controllers.SaleController.GetSale(System.String)">
             <summary>
              Gets a single sale.

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using System.Collections;
 
 namespace Architecture_3IMD.Controllers
 {
@@ -18,12 +19,16 @@ namespace Architecture_3IMD.Controllers
     public class SaleController : Controller
     {
         private readonly ISalesRepository _salesRepository;
+        private readonly IBouquetsRepository _bouquetsRepository;
+        private readonly IStoresRepository _storesRepository;
         private readonly IMemoryCache _memoryCache;
         private readonly ILogger<SaleController> _logger;
 
-        public SaleController(ILogger<SaleController> logger, ISalesRepository salesRepository, IMemoryCache memoryCache)
+        public SaleController(ILogger<SaleController> logger, ISalesRepository salesRepository, IMemoryCache memoryCache, IBouquetsRepository bouquetsRepository, IStoresRepository storesRepository)
         {
             _salesRepository = salesRepository;
+            _bouquetsRepository = bouquetsRepository;
+            _storesRepository = storesRepository;
             _memoryCache = memoryCache;
             _logger = logger;
         }
@@ -108,6 +113,115 @@ namespace Architecture_3IMD.Controllers
                        
         overview = overview.OrderByDescending(StoreOverview => StoreOverview.TotalAmountSold);
         return Ok(overview);
+        }
+
+        ///<summary>
+        /// Gets an overview of the revenue of all the stores.
+        ///</summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     GET Flowershop/Sale/OverviewRevenue
+        ///     {   
+        ///       "Store_id": 1,
+        ///       "TotalRevenue": 100    
+        ///     }
+        /// </remarks>   
+        /// <response code="200">If GET request was successfully executed.</response>
+        [HttpGet("OverviewRevenue")]
+        public async Task<IActionResult> GetRevenueOverview()
+        {
+        var sales = await GetAllSalesFromCacheAsync();
+        var bouquets = await _bouquetsRepository.GetAllBouquets();
+        
+        var saleList = from sale in sales
+                    group sale by new { sale.Store_id, sale.Bouquet_id }
+                    into grp
+                    select new
+                    {
+                        
+                        grp.Key.Store_id,
+                        grp.Key.Bouquet_id,
+                        AmountSold = grp.Sum(x => x.Amount),
+                    };
+
+        var revenueLists = new List<Revenue>();
+
+        foreach (var item in saleList)
+        {
+            var price = from bouquet in bouquets
+                        where bouquet.Id == item.Bouquet_id
+                        select bouquet.Price;
+            int bouquetPrice = price.FirstOrDefault();
+            
+            int revenue = item.AmountSold * bouquetPrice;
+            revenueLists.Add(new Revenue() {Store_id = item.Store_id, Bouquet_id = item.Bouquet_id, BouquetRevenue = revenue});
+            
+        } 
+
+        var list = from revenueList in revenueLists
+                    group revenueList by revenueList.Store_id into RevenueOverview
+                       select new
+                       {
+                            Store_id = RevenueOverview.Key,
+                            TotalRevenue = RevenueOverview.Sum(x => x.BouquetRevenue),
+                       };
+
+        list = list.OrderByDescending(RevenueOverview => RevenueOverview.TotalRevenue);
+
+        return Ok(list);
+        }
+
+        ///<summary>
+        /// Gets a sales overview of stores in the same region.
+        ///</summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     GET Flowershop/Sale/RegionOverview
+        ///     {   
+        ///       "Store_id": 1,
+        ///       "TotalAmountSold": 100      
+        ///     }
+        /// </remarks>   
+        /// <param name="region">The region in which store(s) are located</param> 
+        /// <response code="200">If GET request was successfully executed.</response>
+        [HttpGet("RegionOverview/{region}")]
+        public async Task<IActionResult> GetRegionOverview(string region)
+        {
+        var sales = await GetAllSalesFromCacheAsync();
+        var stores = await _storesRepository.GetAllStores();
+        
+        var storesOverview = from store in stores
+                    where store.Region == region
+                    select store;
+
+        var saleLists = new List<SaleByRegion>();
+
+        foreach (var sale in sales)
+        {
+            foreach (var item in storesOverview)
+            {
+                if(sale.Store_id == item.Id){
+                    saleLists.Add(new SaleByRegion() {Store_id = sale.Store_id, Bouquet_id = sale.Bouquet_id, Amount = sale.Amount});
+            
+                }
+
+            }  
+
+        }
+        
+        var overview = from saleList in saleLists
+                       group saleList by saleList.Store_id into SaleOverview
+                       select new
+                       {
+                            Store_id = SaleOverview.Key,
+                            TotalAmountSold = SaleOverview.Sum(x => x.Amount),
+                       };
+
+        overview = overview.OrderByDescending(overview => overview.TotalAmountSold);
+        return Ok(overview); 
+                       
         }
 
         //bouquet by store overview
