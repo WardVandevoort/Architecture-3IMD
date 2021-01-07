@@ -18,8 +18,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http;
-
-
+using BasisRegisters.Vlaanderen;
 
 namespace Architecture_3IMD.Test
 {
@@ -28,12 +27,14 @@ namespace Architecture_3IMD.Test
         private readonly Mock<ILogger<StoreController>> _loggerMock;
         private readonly Mock<IStoresRepository> _storeRepoMock;
         private readonly StoreController _storeController;
+        private readonly IBasisRegisterService _basisRegisterService;
 
         public StoreControllerTests()
         {
             _loggerMock = new Mock<ILogger<StoreController>>(MockBehavior.Loose);
             _storeRepoMock = new Mock<IStoresRepository>(MockBehavior.Strict);
             _storeController = new StoreController(_storeRepoMock.Object, _loggerMock.Object);
+            _basisRegisterService = basisRegisterService;
         }
         public void Dispose()
         {

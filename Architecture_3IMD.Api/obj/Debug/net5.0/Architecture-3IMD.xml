@@ -56,6 +56,40 @@
             <response code="201">If new bouquet was successfully created.</response>
             <response code="400">If one or more required fields are null.</response>   
         </member>
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.updateBouquet(Architecture_3IMD.Models.Web.BouquetUpsertInput)">
+            <summary>
+            Updates a bouquet.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                PATCH Flowershop/Bouquet
+                {    
+                  "Id": 1,    
+                  "Name": "Roses",
+                  "Price": 20,
+                  "Description": "A bouquet of red roses"        
+                }
+            </remarks>
+            <response code="202">If bouquet was successfully updated.</response>
+            <response code="400">If one or more required fields are null.</response>   
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.deleteBouquet(System.Int32)">
+            <summary>
+            Deletes a bouquet.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                DELETE Flowershop/Bouquet
+                {        
+                  "Id": 1,      
+                }
+            </remarks>
+            <param name="Id">The unique identifier of the bouquet</param>
+            <response code="204">If bouquet was successfully deleted.</response>
+            <response code="400">If one or more required fields are null.</response>   
+        </member>
         <member name="M:Architecture_3IMD.Controllers.SaleController.GetSales">
             <summary>
              Gets a list of all the sales.
@@ -229,6 +263,41 @@
                 }
             </remarks>
             <response code="201">If new store was successfully created.</response>
+            <response code="400">If one or more required fields are null.</response>   
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.StoreController.updateStore(Architecture_3IMD.Models.Web.StoreUpsertInput)">
+            <summary>
+            Updates a store.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                PATCH Flowershop/Store
+                {    
+                  "Id": 1,    
+                  "Name": "Fleurtop",
+                  "Address": "Steestraat",
+                  "StreetNumber": "100",
+                  "Region": "Tremelo"        
+                }
+            </remarks>
+            <response code="202">If store was successfully updated.</response>
+            <response code="400">If one or more required fields are null.</response>   
+        </member>
+        <member name="M:Architecture_3IMD.Controllers.StoreController.deleteStore(System.Int32)">
+            <summary>
+            Deletes a store.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                DELETE Flowershop/Store
+                {        
+                  "Id": 1,      
+                }
+            </remarks>
+            <param name="Id">The unique identifier of the store</param>
+            <response code="204">If store was successfully deleted.</response>
             <response code="400">If one or more required fields are null.</response>   
         </member>
         <member name="M:BasisRegisters.Vlaanderen.IBasisRegisterService.GetMunicipalityAsync(System.Int32,System.String)">

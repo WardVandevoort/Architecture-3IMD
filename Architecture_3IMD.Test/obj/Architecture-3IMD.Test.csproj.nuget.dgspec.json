@@ -1,29 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Test\\Architecture-3IMD.Test.csproj": {}
+    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Test\\Architecture-3IMD.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj": {
+    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
         "projectName": "Architecture-3IMD",
-        "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -34,29 +35,76 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.0, )",
+              "noWarn": [
+                "NU1605"
+              ]
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[5.0.0, )",
+              "noWarn": [
+                "NU1605"
+              ]
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.Extensions.Http.Polly": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.2.8, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.11.4, )"
+            },
+            "NSwag.ApiDescription.Client": {
+              "target": "Package",
+              "version": "[13.0.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.1, )"
+            },
+            "Polly.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[3.2.3, )"
+              "version": "[5.0.0-alpha.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -89,33 +137,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Test\\Architecture-3IMD.Test.csproj": {
+    "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Test\\Architecture-3IMD.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Test\\Architecture-3IMD.Test.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Test\\Architecture-3IMD.Test.csproj",
         "projectName": "Architecture-3IMD.Test",
-        "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Test\\Architecture-3IMD.Test.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Test\\Architecture-3IMD.Test.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Test\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj": {
-                "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase 3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj"
+              "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj": {
+                "projectPath": "C:\\Users\\Gebruiker\\Desktop\\Webtech\\Fase_3\\Flowershop\\Architecture_3IMD.Api\\Architecture-3IMD.csproj"
               }
             }
           }
@@ -127,7 +176,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "FluentAssertions": {
               "target": "Package",
@@ -185,7 +235,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

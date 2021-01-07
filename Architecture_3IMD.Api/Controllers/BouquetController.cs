@@ -107,6 +107,78 @@ namespace Architecture_3IMD.Controllers
             return Created($"/bouquets/{persistedBouquet.Id}", persistedBouquet);
         }
 
+        /// <summary>
+        /// Updates a bouquet.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     PATCH Flowershop/Bouquet
+        ///     {    
+        ///       "Id": 1,    
+        ///       "Name": "Roses",
+        ///       "Price": 20,
+        ///       "Description": "A bouquet of red roses"        
+        ///     }
+        /// </remarks>
+        /// <response code="202">If bouquet was successfully updated.</response>
+        /// <response code="400">If one or more required fields are null.</response>   
+        [HttpPatch]
+        [ProducesResponseType(typeof(BouquetWebOutput),StatusCodes.Status202Accepted)]
+        [ProducesDefaultResponseType]
+        public async Task<IActionResult> updateBouquet(BouquetUpsertInput bouquet)
+        {
+            try
+            {
+                
+                // Code that updates a bouquet.
+                _logger.LogInformation("Updating a bouquet", bouquet);
+                var persistedBouquet = await _bouquetsRepository.Update(bouquet.Id, bouquet.Name, bouquet.Price, bouquet.Description);
+                return Accepted();
+                   
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Error");
+                return BadRequest();
+            }
+
+        }
+
+        /// <summary>
+        /// Deletes a bouquet.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     DELETE Flowershop/Bouquet
+        ///     {        
+        ///       "Id": 1,      
+        ///     }
+        /// </remarks>
+        /// <param name="Id">The unique identifier of the bouquet</param>
+        /// <response code="204">If bouquet was successfully deleted.</response>
+        /// <response code="400">If one or more required fields are null.</response>   
+        [HttpDelete("{Id}")]
+        [ProducesResponseType(typeof(BouquetWebOutput),StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
+        public async Task<IActionResult> deleteBouquet(int Id)
+        {
+            try
+            {
+                // Code that deletes a bouquet.
+                _logger.LogInformation("Deleting a bouquet");
+                await _bouquetsRepository.Delete(Id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Error");
+                return BadRequest();
+            }
+
+        }
+
     }
 }
 

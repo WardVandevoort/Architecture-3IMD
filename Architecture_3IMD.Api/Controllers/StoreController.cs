@@ -129,6 +129,86 @@ namespace Architecture_3IMD.Controllers
 
           }
 
+          /// <summary>
+          /// Updates a store.
+          /// </summary>
+          /// <remarks>
+          /// Sample request:
+          /// 
+          ///     PATCH Flowershop/Store
+          ///     {    
+          ///       "Id": 1,    
+          ///       "Name": "Fleurtop",
+          ///       "Address": "Steestraat",
+          ///       "StreetNumber": "100",
+          ///       "Region": "Tremelo"        
+          ///     }
+          /// </remarks>
+          /// <response code="202">If store was successfully updated.</response>
+          /// <response code="400">If one or more required fields are null.</response>   
+          [HttpPatch]
+          [ProducesResponseType(typeof(StoreWebOutput),StatusCodes.Status202Accepted)]
+          [ProducesDefaultResponseType]
+          public async Task<IActionResult> updateStore(StoreUpsertInput store)
+          {
+               try
+               {
+                    // Code that checks if the given address exists
+                    var addresses = await _basisRegisterService
+                    .AddressMatchAsync(store.Region, null, null, null, null, store.Address, store.StreetNumber, null, null);
+                    addresses.Warnings.ToList().ForEach(x => _logger.LogWarning($"{x.Code} {x.Message}"));
+                    if(!addresses.Warnings.Any()){
+                         // Code that updates a store.
+                         _logger.LogInformation("Updating a store", store);
+                         var persistedStore = await _storesRepository.Update(store.Id, store.Name, store.Address, store.StreetNumber, store.Region);
+                         return Accepted();
+                    }
+                    else{
+                         return Ok("The given address does not exist!");
+                    }
+               }
+               catch (Exception ex)
+               {
+                    _logger.LogCritical(ex, "Error");
+                    return BadRequest();
+               }
+
+          }
+
+          /// <summary>
+          /// Deletes a store.
+          /// </summary>
+          /// <remarks>
+          /// Sample request:
+          /// 
+          ///     DELETE Flowershop/Store
+          ///     {        
+          ///       "Id": 1,      
+          ///     }
+          /// </remarks>
+          /// <param name="Id">The unique identifier of the store</param>
+          /// <response code="204">If store was successfully deleted.</response>
+          /// <response code="400">If one or more required fields are null.</response>   
+          [HttpDelete("{Id}")]
+          [ProducesResponseType(typeof(StoreWebOutput),StatusCodes.Status204NoContent)]
+          [ProducesDefaultResponseType]
+          public async Task<IActionResult> deleteStore(int Id)
+          {
+               try
+               {
+                    // Code that deletes a store.
+                    _logger.LogInformation("Deleting a store");
+                    await _storesRepository.Delete(Id);
+                    return NoContent();
+               }
+               catch (Exception ex)
+               {
+                    _logger.LogCritical(ex, "Error");
+                    return BadRequest();
+               }
+
+          }
+
     }
 }
 

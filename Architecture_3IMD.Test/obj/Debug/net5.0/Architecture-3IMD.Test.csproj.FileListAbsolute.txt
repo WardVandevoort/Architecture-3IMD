@@ -1,0 +1,5 @@
+C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Test\obj\Debug\net5.0\Architecture-3IMD.Test.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Test\obj\Debug\net5.0\Architecture-3IMD.Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Test\obj\Debug\net5.0\Architecture-3IMD.Test.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Test\obj\Debug\net5.0\Architecture-3IMD.Test.AssemblyInfo.cs
+C:\Users\Gebruiker\Desktop\Webtech\Fase_3\Flowershop\Architecture_3IMD.Test\obj\Debug\net5.0\Architecture-3IMD.Test.csproj.CoreCompileInputs.cache
