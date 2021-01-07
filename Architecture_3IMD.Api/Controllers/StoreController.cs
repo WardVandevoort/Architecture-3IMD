@@ -105,8 +105,7 @@ namespace Architecture_3IMD.Controllers
           [ProducesDefaultResponseType]
           public async Task<IActionResult> createStore(StoreUpsertInput store)
           {
-               try
-               {
+
                     // Code that checks if the given address exists
                     var addresses = await _basisRegisterService
                     .AddressMatchAsync(store.Region, null, null, null, null, store.Address, store.StreetNumber, null, null);
@@ -120,12 +119,6 @@ namespace Architecture_3IMD.Controllers
                     else{
                          return Ok("The given address does not exist!");
                     }
-               }
-               catch (Exception ex)
-               {
-                    _logger.LogCritical(ex, "Error");
-                    return BadRequest();
-               }
 
           }
 
@@ -144,15 +137,15 @@ namespace Architecture_3IMD.Controllers
           ///       "Region": "Tremelo"        
           ///     }
           /// </remarks>
+          /// <param name="Id">The unique identifier of the store</param>
           /// <response code="202">If store was successfully updated.</response>
           /// <response code="400">If one or more required fields are null.</response>   
-          [HttpPatch]
+          [HttpPatch("{Id}")]
           [ProducesResponseType(typeof(StoreWebOutput),StatusCodes.Status202Accepted)]
           [ProducesDefaultResponseType]
-          public async Task<IActionResult> updateStore(StoreUpsertInput store)
+          public async Task<IActionResult> updateStore(int Id, StoreUpsertInput store)
           {
-               try
-               {
+          
                     // Code that checks if the given address exists
                     var addresses = await _basisRegisterService
                     .AddressMatchAsync(store.Region, null, null, null, null, store.Address, store.StreetNumber, null, null);
@@ -166,13 +159,7 @@ namespace Architecture_3IMD.Controllers
                     else{
                          return Ok("The given address does not exist!");
                     }
-               }
-               catch (Exception ex)
-               {
-                    _logger.LogCritical(ex, "Error");
-                    return BadRequest();
-               }
-
+              
           }
 
           /// <summary>

@@ -1,6 +1,7 @@
 ﻿{
   "Id": 4,
   "Name": "",
-  "Address": "test address",
-  "Region": "test region"
+  "Address": "Zandpoortvest",
+  "StreetNumber": "60",
+  "Region": "Mechelen"
 }

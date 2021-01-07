@@ -56,7 +56,7 @@
             <response code="201">If new bouquet was successfully created.</response>
             <response code="400">If one or more required fields are null.</response>   
         </member>
-        <member name="M:Architecture_3IMD.Controllers.BouquetController.updateBouquet(Architecture_3IMD.Models.Web.BouquetUpsertInput)">
+        <member name="M:Architecture_3IMD.Controllers.BouquetController.updateBouquet(System.Int32,Architecture_3IMD.Models.Web.BouquetUpsertInput)">
             <summary>
             Updates a bouquet.
             </summary>
@@ -71,6 +71,7 @@
                   "Description": "A bouquet of red roses"        
                 }
             </remarks>
+            <param name="Id">The unique identifier of the bouquet</param>
             <response code="202">If bouquet was successfully updated.</response>
             <response code="400">If one or more required fields are null.</response>   
         </member>
@@ -265,7 +266,7 @@
             <response code="201">If new store was successfully created.</response>
             <response code="400">If one or more required fields are null.</response>   
         </member>
-        <member name="M:Architecture_3IMD.Controllers.StoreController.updateStore(Architecture_3IMD.Models.Web.StoreUpsertInput)">
+        <member name="M:Architecture_3IMD.Controllers.StoreController.updateStore(System.Int32,Architecture_3IMD.Models.Web.StoreUpsertInput)">
             <summary>
             Updates a store.
             </summary>
@@ -281,6 +282,7 @@
                   "Region": "Tremelo"        
                 }
             </remarks>
+            <param name="Id">The unique identifier of the store</param>
             <response code="202">If store was successfully updated.</response>
             <response code="400">If one or more required fields are null.</response>   
         </member>

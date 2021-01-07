@@ -8,27 +8,28 @@ This project contains a simple Api, which functions as a management tool for flo
 
 You will need the following software:
 
-- [.NET Core (At least version 3.1)](https://dotnet.microsoft.com/download).
+- [.NET Core (At least version 5)](https://dotnet.microsoft.com/download).
+- LAMP stack of your choosing.
 
-We also included a database export so you can easily create a database with dummy data. You simply need to:
+Before you can use the project you wil need to change the database connection string in the appsettings.Development.json file, this file can be found in the root of the Architecture_3IMD.Api folder. !!! You do not need to change the database name !!!
 
-- Create a database and name it "architecture".
-- Import the database_export.sql file, which you can find in the root folder.
-- Go to the Api folder and add your database connection settings on line 48 of the Startup.cs file.
+"ConnectionStrings": {
+    "SQL": `"server=localhost;user=(your username);password=(your password);database=architecture"`
+},
+
+We included migrations and seeders so you can easily create a database with dummy data. You simply need to run the command `dotnet ef database update`.
 
 ## Usage
 
 You can use `dotnet watch run` to run the project; after you get the notification that the application started navigate to <http://localhost:5000/swagger/index.html> or <https://localhost:5001/swagger/index.html>; you will get an overview with all the API methods and a quick method to execute them.
 
-## TODO
+You can use `dotnet test` to run the tests, if the project is working correctly all these tests should be passed.
 
-Momenteel hebben we enkel de basis endpoints, namelijk:
-- Get, Get{id} en Post voor boeketten.
-- Get, Get{id} en Post voor winkels.
-- Get, Get{id}, Post en Update voor de verkopen.
-De andere routes die in de jaaropdracht beschreven staan hebben we nog niet kunnen implementeren.
+You can use `docker-compose build` to build the projects docker containers.
 
-Verder hebben we ook enkele unit en integratie testen toegevoegd. De unit testen werken zoals het hoort, maar somige van de integratie testen geven af en toe een fout en we weten niet wat het probleem is.
+## Hoe ver zijn we geraakt?
+
+We hebben alles dat in de jaaropdracht staat kunnen implementeren. We hebben niet zo veel unit/integratie testen, dit komt onder andere doordat de basis register API van Vlaanderen problemen gaf om de POST en UPDATE van de stores te testen. Verder zijn we er ook niet uit gekomen hoe we de sales controller moeten testen, aangezien deze anders werkt door het gebruik van MongoDB.
 
 
 

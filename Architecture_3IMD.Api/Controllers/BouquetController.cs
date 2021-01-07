@@ -121,27 +121,19 @@ namespace Architecture_3IMD.Controllers
         ///       "Description": "A bouquet of red roses"        
         ///     }
         /// </remarks>
+        /// <param name="Id">The unique identifier of the bouquet</param>
         /// <response code="202">If bouquet was successfully updated.</response>
         /// <response code="400">If one or more required fields are null.</response>   
-        [HttpPatch]
+        [HttpPatch("{Id}")]
         [ProducesResponseType(typeof(BouquetWebOutput),StatusCodes.Status202Accepted)]
         [ProducesDefaultResponseType]
-        public async Task<IActionResult> updateBouquet(BouquetUpsertInput bouquet)
+        public async Task<IActionResult> updateBouquet(int Id, BouquetUpsertInput bouquet)
         {
-            try
-            {
                 
-                // Code that updates a bouquet.
-                _logger.LogInformation("Updating a bouquet", bouquet);
-                var persistedBouquet = await _bouquetsRepository.Update(bouquet.Id, bouquet.Name, bouquet.Price, bouquet.Description);
-                return Accepted();
-                   
-            }
-            catch (Exception ex)
-            {
-                _logger.LogCritical(ex, "Error");
-                return BadRequest();
-            }
+            // Code that updates a bouquet.
+            _logger.LogInformation("Updating a bouquet", bouquet);
+            var persistedBouquet = await _bouquetsRepository.Update(bouquet.Id, bouquet.Name, bouquet.Price, bouquet.Description);
+            return Accepted();
 
         }
 

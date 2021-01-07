@@ -33,8 +33,8 @@ namespace Architecture_3IMD.Test
         {
             _loggerMock = new Mock<ILogger<StoreController>>(MockBehavior.Loose);
             _storeRepoMock = new Mock<IStoresRepository>(MockBehavior.Strict);
-            _storeController = new StoreController(_storeRepoMock.Object, _loggerMock.Object);
-            _basisRegisterService = basisRegisterService;
+            _storeController = new StoreController(_storeRepoMock.Object, _loggerMock.Object, _basisRegisterService);
+            
         }
         public void Dispose()
         {
@@ -55,22 +55,25 @@ namespace Architecture_3IMD.Test
                 {
                     Id = 1,
                     Name = "test name 1",
-                    Address = "test address 1",
-                    Region = "test region 1"
+                    Address = "Zandpoortvest",
+                    StreetNumber = "60",
+                    Region = "Mechelen"
                 },
                 new Store
                 {
                     Id = 2,
                     Name = "test name 2",
-                    Address = "test address 2",
-                    Region = "test region 2"
+                    Address = "Zandpoortvest",
+                    StreetNumber = "60",
+                    Region = "Mechelen"
                 },
                 new Store
                 {
                     Id = 3,
                     Name = "test name 3",
-                    Address = "test address 3",
-                    Region = "test region 3"
+                    Address = "Zandpoortvest",
+                    StreetNumber = "60",
+                    Region = "Mechelen"
                 },
             };
             // Arrange
@@ -88,25 +91,53 @@ namespace Architecture_3IMD.Test
         }
 
         [Fact]
+        public async Task TestGetOneStore()
+        {
+            var store = new Store()
+            {
+                Id = 1,
+                Name = "test name",
+                Address = "Zandpoortvest",
+                StreetNumber = "60",
+                Region = "Mechelen"
+            };
+            _storeRepoMock.Setup(x => x.GetOneStoreById(1)).Returns(Task.FromResult(store)).Verifiable();
+            var storeResponse = await _storeController.getOneStore(1);
+            storeResponse.Should().BeOfType<OkObjectResult>();
+            Snapshot.Match(storeResponse);
+        }  
+
+        [Fact]
+        public async Task TestGetOneStoreNotFound()
+        {
+            _storeRepoMock.Setup(x => x.GetOneStoreById(1)).Returns(Task.FromResult(null as Store)).Verifiable();
+            var storeResponse = await _storeController.getOneStore(1);
+            storeResponse.Should().BeOfType<NotFoundResult>();
+            Snapshot.Match(storeResponse);
+        }
+
+        /*[Fact]
         public async Task TestCreateStore()
         {
             var store = new Store()
             {
                 Id = 1,
                 Name = "test name",
-                Address = "test address",
-                Region = "test region"
+                Address = "Zandpoortvest",
+                StreetNumber = "60",
+                Region = "Mechelen"
             };            
-            _storeRepoMock.Setup(x => x.Insert(1, "test name", "test address", "test region")).ReturnsAsync(store).Verifiable();
+            _storeRepoMock.Setup(x => x.Insert(1, "test name", "Zandpoortvest", "60", "Mechelen")).ReturnsAsync(store).Verifiable();
             var storeResponse = await _storeController.createStore(new StoreUpsertInput()
             {
                 Id = 1,
                 Name = "test name",
-                Address = "test address",
-                Region = "test region"
+                Address = "Zandpoortvest",
+                StreetNumber = "60",
+                Region = "Mechelen"
             });
             storeResponse.Should().BeOfType<CreatedResult>();
             Snapshot.Match(storeResponse);
-        }
+        }*/
     }
 }

@@ -24,6 +24,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <OpenApiReference Include="docs.json" CodeGenerator="NSwagCSharp" Namespace="BasisRegisters.Vlaanderen">
+      <ClassName>BasisRegisterService</ClassName>
+      <OutputPath>BasisRegister.cs</OutputPath>
+      <Options>/UseBaseUrl:false /GenerateClientInterfaces:true</Options>
+    </OpenApiReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Integration\__snapshots__\" />
   </ItemGroup>
   

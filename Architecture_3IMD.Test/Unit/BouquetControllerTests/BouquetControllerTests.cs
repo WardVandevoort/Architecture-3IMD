@@ -87,6 +87,31 @@ namespace Architecture_3IMD.Test
         }
 
         [Fact]
+        public async Task TestGetOneBouquet()
+        {
+            var bouquet = new Bouquet()
+            {
+                Id = 1,
+                Name = "test name 3",
+                Price = 123,
+                Description = "test description 3"
+            };
+            _bouquetRepoMock.Setup(x => x.GetOneBouquetById(1)).Returns(Task.FromResult(bouquet)).Verifiable();
+            var bouquetResponse = await _bouquetController.getOneBouquet(1);
+            bouquetResponse.Should().BeOfType<OkObjectResult>();
+            Snapshot.Match(bouquetResponse);
+        }  
+
+        [Fact]
+        public async Task TestGetOneBouquetNotFound()
+        {
+            _bouquetRepoMock.Setup(x => x.GetOneBouquetById(1)).Returns(Task.FromResult(null as Bouquet)).Verifiable();
+            var bouquetResponse = await _bouquetController.getOneBouquet(1);
+            bouquetResponse.Should().BeOfType<NotFoundResult>();
+            Snapshot.Match(bouquetResponse);
+        }
+
+        [Fact]
         public async Task TestCreateBouquet()
         {
             var bouquet = new Bouquet()
@@ -107,5 +132,28 @@ namespace Architecture_3IMD.Test
             bouquetResponse.Should().BeOfType<CreatedResult>();
             Snapshot.Match(bouquetResponse);
         }
+
+        [Fact]
+        public async Task TestUpdateOneBouquet()
+        {
+            var bouquet = new Bouquet()
+            {
+                Id = 1,
+                Name = "test name",
+                Price = 10,
+                Description = "test description"
+            };            
+            _bouquetRepoMock.Setup(x => x.Update(1, "test name", 10, "test description")).Returns(Task.FromResult(bouquet)).Verifiable();
+            var bouquetResponse = await _bouquetController.updateBouquet(1, new BouquetUpsertInput()
+            {
+                Id = 1,
+                Name = "test name",
+                Price = 10,
+                Description = "test description"
+            });
+            bouquetResponse.Should().BeOfType<AcceptedResult>();
+            Snapshot.Match(bouquetResponse);
+        }
+
     }
 }

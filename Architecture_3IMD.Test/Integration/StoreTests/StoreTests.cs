@@ -41,15 +41,17 @@ namespace Architecture_3IMD.Test.Integration
                     {
                     Id = 1,
                     Name = "test name 1",
-                    Address = "test address 1",
-                    Region = "test region 1"
+                    Address = "Zandpoortvest",
+                    StreetNumber = "60",
+                    Region = "Mechelen"
                     });
                 db.Stores.Add(new Store() 
                     {
                     Id = 2,
                     Name = "test name 2",
-                    Address = "test address 2",
-                    Region = "test region 2"
+                    Address = "Zandpoortvest",
+                    StreetNumber = "60",
+                    Region = "Mechelen"
                     });
             });
             var response = await client.GetAsync("/Flowershop/Store");
@@ -69,8 +71,9 @@ namespace Architecture_3IMD.Test.Integration
                 {
                     Id = 3,
                     Name = "test name",
-                    Address = "test address",
-                    Region = "test region"
+                    Address = "Zandpoortvest",
+                    StreetNumber = "60",
+                    Region = "Mechelen"
                 }
             };
             var createResponse = await client.PostAsync("/Flowershop/Store", ContentHelper.GetStringContent(request.Body));
@@ -78,8 +81,9 @@ namespace Architecture_3IMD.Test.Integration
             var body = JsonConvert.DeserializeObject<StoreWebOutput>(await createResponse.Content.ReadAsStringAsync());
             body.Should().NotBeNull();
             body.Name.Should().Be("test name");
-            body.Address.Should().Be("test address");
-            body.Region.Should().Be("test region");
+            body.Address.Should().Be("Zandpoortvest");
+            body.StreetNumber.Should().Be("60");
+            body.Region.Should().Be("Mechelen");
             var getResponse = await client.GetAsync($"/Flowershop/Store/{body.Id}");
             getResponse.EnsureSuccessStatusCode();
             Snapshot.Match(request.Body, matchOptions => matchOptions.IgnoreField("Id"));
@@ -97,8 +101,9 @@ namespace Architecture_3IMD.Test.Integration
                 {
                     Id = 4,
                     Name = string.Empty,
-                    Address = "test address",
-                    Region = "test region"
+                    Address = "Zandpoortvest",
+                    StreetNumber = "60",
+                    Region = "Mechelen"
                 }
             };
             var createResponse = await client.PostAsync("/Flowershop/Store", ContentHelper.GetStringContent(request.Body));
@@ -118,8 +123,9 @@ namespace Architecture_3IMD.Test.Integration
                 {
                     Id = 5,
                     Name = new string('c', 10001),
-                    Address = "test address",
-                    Region = "test region"
+                    Address = "Zandpoortvest",
+                    StreetNumber = "60",
+                    Region = "Mechelen"
                 }
             };
             var createResponse = await client.PostAsync("/Flowershop/Store", ContentHelper.GetStringContent(request.Body));

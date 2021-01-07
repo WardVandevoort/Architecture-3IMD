@@ -1,13 +1,13 @@
 ﻿{
-  "Location": "/stores/1",
   "Value": {
     "Id": 1,
     "Name": "test name",
-    "Address": "test address",
-    "Region": "test region"
+    "Address": "Zandpoortvest",
+    "StreetNumber": "60",
+    "Region": "Mechelen"
   },
   "Formatters": [],
   "ContentTypes": [],
   "DeclaredType": null,
-  "StatusCode": 201
+  "StatusCode": 200
 }

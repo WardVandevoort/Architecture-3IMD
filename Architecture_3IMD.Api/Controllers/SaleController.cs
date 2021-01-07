@@ -51,6 +51,7 @@ namespace Architecture_3IMD.Controllers
         /// </remarks>   
         /// <response code="200">If GET request was successfully executed.</response>
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<SaleWebOutput>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetSales() => Ok(await GetAllSalesFromCacheAsync());
 
         ///<summary>
@@ -224,10 +225,6 @@ namespace Architecture_3IMD.Controllers
                        
         }
 
-        //bouquet by store overview
-        //store overview
-        //region overview
-
         ///<summary>
         /// Gets a single sale.
         ///</summary>
@@ -247,6 +244,7 @@ namespace Architecture_3IMD.Controllers
         /// <param name="Id">The unique identifier of the sale</param> 
         /// <response code="200">If GET request was successfully executed.</response>
         [HttpGet("{Id}", Name = nameof(GetSale))]
+        [ProducesResponseType(typeof(StoreWebOutput), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetSale(string Id)
         {
             var sales = await GetAllSalesFromCacheAsync();
